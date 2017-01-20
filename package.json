@@ -1,0 +1,36 @@
+{
+  "name": "smartmeter-obis",
+  "version": "0.0.1",
+  "description": "Library to read Smartmeter with different protocols that support OBIS as data structure format",
+  "author": "Ingo Fischer <ingo@fischer-ka.de>",
+  "contributors": [],
+  "homepage": "",
+  "license": "MIT",
+  "keywords": [
+    "smartmeter", "SML", "D0", "eHz", "OBIS", "EFR"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Apollon77/smartmeter-obis"
+  },
+  "dependencies": {
+    "open-sml": "^0.3.0",
+    "serialport": "^4.0.7",
+    "request": "^2.79.0"
+  },
+  "devDependencies": {
+    "virtual-serialport": "^0.3.3",
+    "mocha": "^3.2.0",
+    "chai": "^3.4.1",
+    "sinon": "^1.17.7",
+    "nock": "^9.0.2",
+    "mock-require": "^2.0.1"
+},
+  "bugs": {
+    "url": "https://github.com/Apollon77/smartmeter-obis/issues"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "node node_modules/mocha/bin/mocha"
+  }
+}
