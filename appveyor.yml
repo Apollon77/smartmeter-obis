@@ -17,6 +17,7 @@ install:
   - ps: Install-Product node $env:nodejs_version $env:platform
   # install modules
   - npm install
+  - cp test/patch-virtual-serialport/index.js node_modules/virtual-serialport/index.js
 
 # Post-install test scripts.
 test_script:

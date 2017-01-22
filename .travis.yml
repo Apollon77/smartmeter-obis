@@ -5,6 +5,8 @@ language: node_js
 node_js:
   - "4"
   - "6"
+before_script:
+  - cp test/patch-virtual-serialport/index.js node_modules/virtual-serialport/index.js
 env:
   - CXX=g++-4.8
 addons:
