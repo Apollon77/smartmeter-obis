@@ -9,3 +9,4 @@ appveyor.yml
 .eslinkignore
 .eslintrc
 .vscode
+coverage
