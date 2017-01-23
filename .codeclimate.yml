@@ -2,6 +2,9 @@
 engines:
   duplication:
     enabled: true
+    checks:
+      Similar code:
+        enabled: false
     config:
       languages:
       - javascript
@@ -10,6 +13,9 @@ engines:
     checks:
       complexity:
         enabled: false
+    exclude_fingerprints:
+      - 5e7a26b08d0b11a676af8c9bf2820e7f
+      - 6d1c1679817dbb90dbccdaf90cc2b4ab
   fixme:
     enabled: true
 ratings:
