@@ -5,6 +5,8 @@ engines:
     checks:
       Similar code:
         enabled: false
+    exclude_fingerprints:
+      - 74f9416fd05085e5204a9405ad47f9b6
     config:
       languages:
       - javascript
