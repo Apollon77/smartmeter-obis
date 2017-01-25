@@ -15,7 +15,7 @@ describe('Test ObisNames', function() {
 
 
         expect(ObisNames.resolveObisName(new ObisMeasurement("6-0:1.8.1"), 'en').obisName).to.be.equal('Heat (T1)');
-        expect(ObisNames.resolveObisName(new ObisMeasurement("6.28", 6), 'en').obisName).to.be.equal('Temperature return');
-        expect(ObisNames.resolveObisName(new ObisMeasurement("6.28*01", 6), 'en').obisName).to.be.equal('Temperature return last Year');
+        expect(ObisNames.resolveObisName(new ObisMeasurement("6.28", 6), 'en').obisName).to.be.equal('Temperature return Nb');
+        expect(ObisNames.resolveObisName(new ObisMeasurement("6.28*01", 6), 'en').obisName).to.be.equal('Temperature return Nb previous Year');
     });
 });
