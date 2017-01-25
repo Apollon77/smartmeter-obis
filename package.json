@@ -1,6 +1,6 @@
 {
   "name": "smartmeter-obis",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Library to read Smartmeter with different protocols that support OBIS as data structure format",
   "author": "Ingo Fischer <ingo@fischer-ka.de>",
   "contributors": [],
