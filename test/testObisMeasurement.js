@@ -8,11 +8,23 @@ describe('Test ObisMeasurement', function() {
     it('Test Constructor', function () {
         expect(new ObisMeasurement("1.8.1").idToString()).to.be.equal("1.8.1");
 
+        expect(new ObisMeasurement("1.8.1", 1).idToString()).to.be.equal("1-0:1.8.1");
+
+        expect(new ObisMeasurement("1-0:1.8.1").idToString()).to.be.equal("1-0:1.8.1");
+
+        expect(new ObisMeasurement("1-0:1.8.1", 2).idToString()).to.be.equal("1-0:1.8.1");
+
         expect(new ObisMeasurement("1.8.1*255").idToString()).to.be.equal("1.8.1*255");
 
         expect(new ObisMeasurement("6.8*01").idToString()).to.be.equal("6.8*1");
 
         expect(new ObisMeasurement("1-0:1.8.1*255").idToString()).to.be.equal("1-0:1.8.1*255");
+
+        expect(new ObisMeasurement("1-0:1.8.1*255").idToString('base')).to.be.equal("1.8.1");
+
+        expect(new ObisMeasurement("1-0:1.8.1*255").idToString('full')).to.be.equal("1-0:1.8.1*255");
+
+        expect(new ObisMeasurement("1-0:1.8.1*255").idToString('extended')).to.be.equal("1-0:1.8.1");
 
         var obis1 = new ObisMeasurement("1-0:1.8.1*255");
         obis1.tariffRate = undefined;

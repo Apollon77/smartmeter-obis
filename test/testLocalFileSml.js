@@ -1,16 +1,14 @@
+var fs = require('fs');
 var chai = require('chai');
 var expect = chai.expect;
-var mock = require('mock-require');
 
-describe("test SerialResponseTransport with SMLProtocol", function() {
+describe("test LocalFileTransport with SMLProtocol", function() {
 
     it("check output of two SML messges", function(done){
         this.timeout(600000); // because of first install from npm
 
-        mock('serialport', 'virtual-serialport');
-
         var SmlProtocol = require('../lib/protocols/SmlProtocol');
-        var SerialResponseTransport = require('../lib/transports/SerialResponseTransport');
+        var LocalFileTransport = require('../lib/transports/LocalFileTransport');
         var ObisNames = require('../lib/ObisNames');
 
         var options = {
@@ -20,8 +18,12 @@ describe("test SerialResponseTransport with SMLProtocol", function() {
             'transportSerialBaudrate': 9600,
             'requestInterval': 10,
             'transportHttpRequestUrl': '',
-            'obisNameLanguage': 'en'
+            'obisNameLanguage': 'en',
+            'transportLocalFilePath': './test.sml'
         };
+
+        var testData = new Buffer("1b1b1b1b01010101760700190b4cbead6200620072630101760101070019063f3f8f0b0901454d48000041f045010163662d00760700190b4cbeae620062007263070177010b0901454d48000041f045070100620affff72620165063f2f357777078181c78203ff0101010104454d480177070100000009ff010101010b0901454d48000041f0450177070100010800ff6400018201621e52ff560009247a550177070100010801ff0101621e52ff560009247a550177070100010802ff0101621e52ff5600000000000177070100100700ff0101621b52ff55000016030177078181c78205ff0172620165063f2f3501018302e77ef33ea97bb6bba9bfa4fbd8b9f2ede51207b15acf6b98a237c21ca4982ee3ce18efe8438f1deba9d5c40eb68ae8f201010163574a00760700190b4cbeb16200620072630201710163d658000000001b1b1b1b1a03e566", 'hex');
+        fs.writeFileSync(options.transportLocalFilePath, testData);
 
         var lastObisResult = undefined;
         var counter = 0;
@@ -57,27 +59,16 @@ describe("test SerialResponseTransport with SMLProtocol", function() {
         }
 
         var smProtocol = new SmlProtocol(options, testStoreData);
-        var smTransport = new SerialResponseTransport(options, smProtocol);
+        var smTransport = new LocalFileTransport(options, smProtocol);
 
         smTransport.init();
 
         smTransport.process();
 
         setTimeout(function() {
-            var testData = new Buffer("1b1b1b1b01010101760700190b4cbead6200620072630101760101070019063f3f8f0b0901454d48000041f045010163662d00760700190b4cbeae620062007263070177010b0901454d48000041f045070100620affff72620165063f2f357777078181c78203ff0101010104454d480177070100000009ff010101010b0901454d48000041f0450177070100010800ff6400018201621e52ff560009247a550177070100010801ff0101621e52ff560009247a550177070100010802ff0101621e52ff5600000000000177070100100700ff0101621b52ff55000016030177078181c78205ff0172620165063f2f3501018302e77ef33ea97bb6bba9bfa4fbd8b9f2ede51207b15acf6b98a237c21ca4982ee3ce18efe8438f1deba9d5c40eb68ae8f201010163574a00760700190b4cbeb16200620072630201710163d658000000001b1b1b1b1a03e566", 'hex');
-            smTransport.serialComm.writeToComputer(testData);
-
-            setTimeout(function() {
-                var testData = new Buffer("1b1b1b1b01010101760700190b4cbead6200620072630101760101070019063f3f8f0b0901454d48000041f045010163662d00760700190b4cbeae620062007263070177010b0901454d48000041f045070100620affff72620165063f2f357777078181c78203ff0101010104454d480177070100000009ff010101010b0901454d48000041f0450177070100010800ff6400018201621e52ff560009247a550177070100010801ff0101621e52ff560009247a550177070100010802ff0101621e52ff5600000000000177070100100700ff0101621b52ff55000016030177078181c78205ff0172620165063f2f3501018302e77ef33ea97bb6bba9bfa4fbd8b9f2ede51207b15acf6b98a237c21ca4982ee3ce18efe8438f1deba9d5c40eb68ae8f201010163574a00760700190b4cbeb16200620072630201710163d658000000001b1b1b1b1a03e566", 'hex');
-                smTransport.serialComm.writeToComputer(testData);
-
-                setTimeout(function() {
-                    expect(counter).to.be.equal(2);
-                    expect(smTransport.serialConnected).to.be.false;
-                    smTransport.serialComm.removeAllListeners();
-                    done();
-                }, 3000);
-            }, 15000);
-        }, 5000);
+            expect(counter).to.be.equal(2);
+            fs.unlinkSync(options.transportLocalFilePath);
+            done();
+        }, 13000);
     });
 });

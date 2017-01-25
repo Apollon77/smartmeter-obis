@@ -11,6 +11,7 @@ describe("test SerialRequestResponseTransport with D0Protocol", function() {
 
         var D0Protocol = require('../lib/protocols/D0Protocol');
         var SerialRequestResponseTransport = require('../lib/transports/SerialRequestResponseTransport');
+        var ObisNames = require('../lib/ObisNames');
 
         var options = {
             'protocol': "D0Protocol",
@@ -20,7 +21,9 @@ describe("test SerialRequestResponseTransport with D0Protocol", function() {
             'protocolD0WakeupCharacters': 40,
             'protocolD0DeviceAddress': 'Bla0',
             'requestInterval': 10,
-            'transportHttpRequestUrl': ''
+            'transportHttpRequestUrl': '',
+            'obisNameLanguage': 'en',
+            'obisFallbackMedium': 6
         };
 
         var lastObisResult = null;
@@ -29,15 +32,15 @@ describe("test SerialRequestResponseTransport with D0Protocol", function() {
         function testStoreData(obisResult) {
             // nothing to do in this case because protocol is stateless
             expect(obisResult).to.be.an('object');
-            expect(obisResult['9.20']).to.be.an('object');
-            expect(obisResult['9.20'].rawValue).to.be.equal('64030874');
-            expect(obisResult['9.20'].values.length).to.be.equal(1);
-            expect(obisResult['9.20'].values[0].value).to.be.equal(64030874);
-            expect(obisResult['6.8']).to.be.an('object');
-            expect(obisResult['6.8'].rawValue).to.be.equal('0029.055*MWh');
-            expect(obisResult['6.8'].values.length).to.be.equal(1);
-            expect(obisResult['6.8'].values[0].value).to.be.equal(29.055);
-            expect(obisResult['6.8'].values[0].unit).to.be.equal("MWh");
+            expect(obisResult['6-0:9.20']).to.be.an('object');
+            expect(obisResult['6-0:9.20'].rawValue).to.be.equal('64030874');
+            expect(obisResult['6-0:9.20'].values.length).to.be.equal(1);
+            expect(obisResult['6-0:9.20'].values[0].value).to.be.equal(64030874);
+            expect(obisResult['6-0:6.8']).to.be.an('object');
+            expect(obisResult['6-0:6.8'].rawValue).to.be.equal('0029.055*MWh');
+            expect(obisResult['6-0:6.8'].values.length).to.be.equal(1);
+            expect(obisResult['6-0:6.8'].values[0].value).to.be.equal(29.055);
+            expect(obisResult['6-0:6.8'].values[0].unit).to.be.equal("MWh");
 
             if (!lastObisResult) {
                 expect(counter).to.be.equal(0);
@@ -51,6 +54,9 @@ describe("test SerialRequestResponseTransport with D0Protocol", function() {
             //console.log(JSON.stringify(obisResult,null,2));
             lastObisResult = obisResult;
             counter++;
+            for (var obisId in obisResult) {
+                console.log(obisResult[obisId].idToString() + ": " + ObisNames.resolveObisName(obisResult[obisId], options.obisNameLanguage).obisName + ' = ' + obisResult[obisId].valueToString());
+            }
         }
 
         var smProtocol = new D0Protocol(options, testStoreData);

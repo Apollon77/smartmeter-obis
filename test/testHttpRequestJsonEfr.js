@@ -9,6 +9,7 @@ describe("test HttpRequestTransport with JsonEfrProtocol", function() {
 
         var JsonEfrProtocol = require('../lib/protocols/JsonEfrProtocol');
         var HttpRequestTransport = require('../lib/transports/HttpRequestTransport');
+        var ObisNames = require('../lib/ObisNames');
 
         var options = {
             'protocol': "JsonEfrProtocol",
@@ -16,7 +17,8 @@ describe("test HttpRequestTransport with JsonEfrProtocol", function() {
             'transportSerialPort': "",
             'transportSerialBaudrate': 0,
             'requestInterval': 10,
-            'transportHttpRequestUrl': 'http://test.efr-server.com/json'
+            'transportHttpRequestUrl': 'http://test.efr-server.com/json',
+            'obisNameLanguage': 'en'
         };
 
         var lastObisResult = undefined;
@@ -52,9 +54,11 @@ describe("test HttpRequestTransport with JsonEfrProtocol", function() {
             }
 
             console.log("Received data " + counter + ": " + Object.keys(obisResult));
-            //console.log(JSON.stringify(obisResult,null,2));
             lastObisResult = obisResult;
             counter++;
+            for (var obisId in obisResult) {
+                console.log(obisResult[obisId].idToString() + ": " + ObisNames.resolveObisName(obisResult[obisId], options.obisNameLanguage).obisName + ' = ' + obisResult[obisId].valueToString());
+            }
         }
 
         var smProtocol = new JsonEfrProtocol(options, testStoreData);
