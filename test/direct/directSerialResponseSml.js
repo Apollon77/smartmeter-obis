@@ -5,7 +5,8 @@ var options = {
     'transport': "SerialResponseTransport",
     'transportSerialPort': "/dev/ir-usb0",
     'transportSerialBaudrate': 9600,
-    'requestInterval': 10
+    'requestInterval': 10,
+    'obisNameLanguage': 'en'
 };
 
 function displayData(obisResult) {

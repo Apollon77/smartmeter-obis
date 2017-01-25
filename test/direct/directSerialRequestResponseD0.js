@@ -6,8 +6,11 @@ var options = {
     'transportSerialPort': "/dev/ir-usb1",
     'transportSerialBaudrate': 300,
     'protocolD0WakeupCharacters': 40,
+    //'protocolD0SignOnMessage': "#", // request optional values too
     'protocolD0DeviceAddress': '',
-    'requestInterval': 10
+    'requestInterval': 10,
+    'obisNameLanguage': 'en',
+    'obisFallbackMedium': 6
 };
 
 function displayData(obisResult) {
