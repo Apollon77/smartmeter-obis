@@ -10,8 +10,7 @@ describe("test SerialRequestResponseTransport with D0Protocol With Ack", functio
 
         mock('serialport', 'virtual-serialport');
 
-        var D0Protocol = require('../lib/protocols/D0Protocol');
-        var SerialRequestResponseTransport = require('../lib/transports/SerialRequestResponseTransport');
+        var SmartmeterObis = require('../index.js');
 
         var options = {
             'protocol': "D0Protocol",
@@ -54,10 +53,7 @@ describe("test SerialRequestResponseTransport with D0Protocol With Ack", functio
             counter++;
         }
 
-        var smProtocol = new D0Protocol(options, testStoreData);
-        var smTransport = new SerialRequestResponseTransport(options, smProtocol);
-
-        smTransport.init();
+        var smTransport = SmartmeterObis.init(options, testStoreData);
 
         var endTimer = null;
         smTransport.serialComm.on("dataToDevice", function(data) {
@@ -78,8 +74,8 @@ describe("test SerialRequestResponseTransport with D0Protocol With Ack", functio
                 if (!endTimer) {
                     endTimer = setTimeout(function() {
                         expect(counter).to.be.equal(2);
-                        expect(smProtocol.deviceManufacturer).to.be.equal('SIE');
-                        expect(smProtocol.commBaudrateChangeover).to.be.equal(2400);
+                        expect(smTransport.protocol.deviceManufacturer).to.be.equal('SIE');
+                        expect(smTransport.protocol.commBaudrateChangeover).to.be.equal(2400);
                         expect(smTransport.serialConnected).to.be.false;
                         smTransport.serialComm.removeAllListeners();
                         done();

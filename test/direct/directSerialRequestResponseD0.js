@@ -1,7 +1,4 @@
-var SerialPort = require('serialport');
-var D0Protocol = require('../lib/protocols/D0Protocol');
-var SerialRequestResponseTransport = require('../lib/transports/SerialRequestResponseTransport');
-var ObisNames = require('../lib/ObisNames');
+var SmartmeterObis = require('../index.js');
 
 var options = {
     'protocol': "D0Protocol",
@@ -17,15 +14,12 @@ function displayData(obisResult) {
     //console.log("Received data: " + Object.keys(obisResult));
     //console.log(JSON.stringify(obisResult,null,2));
     for (var obisId in obisResult) {
-        console.log(obisResult[obisId].idToString() + ": " + ObisNames.resolveObisName(obisResult[obisId], options.obisNameLanguage).obisName + ' = ' + obisResult[obisId].valueToString());
+        console.log(obisResult[obisId].idToString() + ": " + SmartmeterObis.ObisNames.resolveObisName(obisResult[obisId], options.obisNameLanguage).obisName + ' = ' + obisResult[obisId].valueToString());
     }
 
 }
 
-var smProtocol = new D0Protocol(options, displayData);
-var smTransport = new SerialRequestResponseTransport(options, smProtocol);
-
-smTransport.init();
+var smTransport = SmartmeterObis.init(options, displayData);
 
 smTransport.process();
 

@@ -1,17 +1,15 @@
 var chai = require('chai');
 var expect = chai.expect;
 var mock = require('mock-require');
+mock('serialport', 'virtual-serialport');
 
 describe("test SerialRequestResponseTransport with D0Protocol", function() {
 
     it("check output of two D0 messges", function(done){
         this.timeout(600000); // because of first install from npm
 
-        mock('serialport', 'virtual-serialport');
 
-        var D0Protocol = require('../lib/protocols/D0Protocol');
-        var SerialRequestResponseTransport = require('../lib/transports/SerialRequestResponseTransport');
-        var ObisNames = require('../lib/ObisNames');
+        var SmartmeterObis = require('../index.js');
 
         var options = {
             'protocol': "D0Protocol",
@@ -55,14 +53,11 @@ describe("test SerialRequestResponseTransport with D0Protocol", function() {
             lastObisResult = obisResult;
             counter++;
             for (var obisId in obisResult) {
-                console.log(obisResult[obisId].idToString() + ": " + ObisNames.resolveObisName(obisResult[obisId], options.obisNameLanguage).obisName + ' = ' + obisResult[obisId].valueToString());
+                console.log(obisResult[obisId].idToString() + ": " + SmartmeterObis.ObisNames.resolveObisName(obisResult[obisId], options.obisNameLanguage).obisName + ' = ' + obisResult[obisId].valueToString());
             }
         }
 
-        var smProtocol = new D0Protocol(options, testStoreData);
-        var smTransport = new SerialRequestResponseTransport(options, smProtocol);
-
-        smTransport.init();
+        var smTransport = SmartmeterObis.init(options, testStoreData);
 
         var endTimer = null;
         smTransport.serialComm.on("dataToDevice", function(data) {
@@ -85,8 +80,8 @@ describe("test SerialRequestResponseTransport with D0Protocol", function() {
                         endTimer = setTimeout(function() {
                             console.log("HIT TIMER");
                             expect(counter).to.be.equal(2);
-                            expect(smProtocol.deviceManufacturer).to.be.equal('SIE');
-                            expect(smProtocol.commBaudrateChangeover).to.be.equal(2400);
+                            expect(smTransport.protocol.deviceManufacturer).to.be.equal('SIE');
+                            expect(smTransport.protocol.commBaudrateChangeover).to.be.equal(2400);
                             expect(smTransport.serialConnected).to.be.false;
                             smTransport.serialComm.removeAllListeners();
                             done();

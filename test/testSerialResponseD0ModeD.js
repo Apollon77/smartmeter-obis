@@ -9,8 +9,7 @@ describe("test SerialResponseTransport with D0 Mode D", function() {
 
         mock('serialport', 'virtual-serialport');
 
-        var D0Protocol = require('../lib/protocols/D0Protocol');
-        var SerialResponseTransport = require('../lib/transports/SerialResponseTransport');
+        var SmartmeterObis = require('../index.js');
 
         var options = {
             'protocol': "D0Protocol",
@@ -53,10 +52,7 @@ describe("test SerialResponseTransport with D0 Mode D", function() {
             counter++;
         }
 
-        var smProtocol = new D0Protocol(options, testStoreData);
-        var smTransport = new SerialResponseTransport(options, smProtocol);
-
-        smTransport.init();
+        var smTransport = SmartmeterObis.init(options, testStoreData);
 
         smTransport.process();
 
@@ -81,8 +77,8 @@ describe("test SerialResponseTransport with D0 Mode D", function() {
 
                     setTimeout(function() {
                         expect(counter).to.be.equal(2);
-                        expect(smProtocol.deviceManufacturer).to.be.equal('SIE');
-                        expect(smProtocol.commBaudrateChangeover).to.be.equal(2400);
+                        expect(smTransport.protocol.deviceManufacturer).to.be.equal('SIE');
+                        expect(smTransport.protocol.commBaudrateChangeover).to.be.equal(2400);
                         expect(smTransport.serialConnected).to.be.false;
                         smTransport.serialComm.removeAllListeners();
                         done();

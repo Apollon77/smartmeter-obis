@@ -1,15 +1,15 @@
 var chai = require('chai');
 var expect = chai.expect;
 var nock = require('nock');
+var mock = require('mock-require');
+mock('serialport', 'virtual-serialport');
 
 describe("test HttpRequestTransport with JsonEfrProtocol", function() {
 
     it("check output of two JSON messges", function(done){
         this.timeout(600000); // because of first install from npm
 
-        var JsonEfrProtocol = require('../lib/protocols/JsonEfrProtocol');
-        var HttpRequestTransport = require('../lib/transports/HttpRequestTransport');
-        var ObisNames = require('../lib/ObisNames');
+        var SmartmeterObis = require('../index.js');
 
         var options = {
             'protocol': "JsonEfrProtocol",
@@ -21,7 +21,7 @@ describe("test HttpRequestTransport with JsonEfrProtocol", function() {
             'obisNameLanguage': 'en'
         };
 
-        var lastObisResult = undefined;
+        var lastObisResult;
         var counter = 0;
 
         function testStoreData(obisResult) {
@@ -57,12 +57,11 @@ describe("test HttpRequestTransport with JsonEfrProtocol", function() {
             lastObisResult = obisResult;
             counter++;
             for (var obisId in obisResult) {
-                console.log(obisResult[obisId].idToString() + ": " + ObisNames.resolveObisName(obisResult[obisId], options.obisNameLanguage).obisName + ' = ' + obisResult[obisId].valueToString());
+                console.log(obisResult[obisId].idToString() + ": " + SmartmeterObis.ObisNames.resolveObisName(obisResult[obisId], options.obisNameLanguage).obisName + ' = ' + obisResult[obisId].valueToString());
             }
         }
 
-        var smProtocol = new JsonEfrProtocol(options, testStoreData);
-        var smTransport = new HttpRequestTransport(options, smProtocol);
+        var smTransport = SmartmeterObis.init(options, testStoreData);
 
         var efrServer = nock('http://test.efr-server.com')
                         .get('/json')
@@ -70,8 +69,6 @@ describe("test HttpRequestTransport with JsonEfrProtocol", function() {
         var efrServer2 = nock('http://test.efr-server.com')
                          .get('/json')
                          .reply(200, '{"billingData:": {"assignment":[ { "obis":"8181C78227FF","value":""}, { "obis":"8181C78205FF","value":""}, { "obis":"8181C78206FF","value":""}, { "obis":"8181C78207FF","value":""}, { "obis":"0100000000FF","value":"1271160146079"}, { "obis":"010000090B00","value":"07.01.2017,13:11:43"}], "values" : [ {"obis":"0101020800FF","value":7860.29,"unit":"kWh"},{"obis":"0100010700FF","value":786.95,"unit":"W"},{"obis":"0100150700FF","value":786.95,"unit":"W"},{"obis":"0100290700FF","value":0.00,"unit":"W"},{"obis":"01003D0700FF","value":0.00,"unit":"W"},{"obis":"010020070000","value":224.13,"unit":"V"},{"obis":"010034070000","value":225.76,"unit":"V"},{"obis":"010048070000","value":223.80,"unit":"V"},{"obis":"01000E070000","value":50.000,"unit":"Hz"},{"obis":"010002080080","value":2.66,"unit":"kWh"},{"obis":"010002080081","value":10.15,"unit":"kWh"},{"obis":"010002080082","value":38.90,"unit":"kWh"},{"obis":"010002080083","value":97.73,"unit":"kWh"},{"obis":"010002080084","value":2036.09,"unit":"kWh"} ] }}');
-
-        smTransport.init();
 
         smTransport.process();
 

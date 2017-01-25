@@ -9,9 +9,7 @@ describe("test SerialResponseTransport with SMLProtocol", function() {
 
         mock('serialport', 'virtual-serialport');
 
-        var SmlProtocol = require('../lib/protocols/SmlProtocol');
-        var SerialResponseTransport = require('../lib/transports/SerialResponseTransport');
-        var ObisNames = require('../lib/ObisNames');
+        var SmartmeterObis = require('../index.js');
 
         var options = {
             'protocol': "SmlProtocol",
@@ -52,14 +50,11 @@ describe("test SerialResponseTransport with SMLProtocol", function() {
             lastObisResult = obisResult;
             counter++;
             for (var obisId in obisResult) {
-                console.log(obisResult[obisId].idToString() + ": " + ObisNames.resolveObisName(obisResult[obisId], options.obisNameLanguage).obisName + ' = ' + obisResult[obisId].valueToString());
+                console.log(obisResult[obisId].idToString() + ": " + SmartmeterObis.ObisNames.resolveObisName(obisResult[obisId], options.obisNameLanguage).obisName + ' = ' + obisResult[obisId].valueToString());
             }
         }
 
-        var smProtocol = new SmlProtocol(options, testStoreData);
-        var smTransport = new SerialResponseTransport(options, smProtocol);
-
-        smTransport.init();
+        var smTransport = SmartmeterObis.init(options, testStoreData);
 
         smTransport.process();
 
