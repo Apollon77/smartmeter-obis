@@ -20,9 +20,9 @@ describe('Test ObisMeasurement', function() {
 
         expect(new ObisMeasurement("1-0:1.8.1*255").idToString()).to.be.equal("1-0:1.8.1*255");
 
-        expect(new ObisMeasurement("1-0:1.8.1*255").idToString('base')).to.be.equal("1.8.1");
-
         expect(new ObisMeasurement("1-0:1.8.1*255").idToString('full')).to.be.equal("1-0:1.8.1*255");
+
+        expect(new ObisMeasurement("1-0:1.8.1*255").idToString('base')).to.be.equal("1.8.1");
 
         expect(new ObisMeasurement("1-0:1.8.1*255").idToString('extended')).to.be.equal("1-0:1.8.1");
 
@@ -39,6 +39,8 @@ describe('Test ObisMeasurement', function() {
         expect(new ObisMeasurement(1,0,1,8,1,255).idToString()).to.be.equal("1-0:1.8.1*255");
 
         expect(new ObisMeasurement("1","0","1","8","1","255").idToString()).to.be.equal("1-0:1.8.1*255");
+
+        expect(new ObisMeasurement(undefined,undefined,1,8,1,255).idToString()).to.be.equal("1.8.1*255");
 
         expect(new ObisMeasurement("8181C78227FF").idToString()).to.be.equal("129-129:199.130.39*255");
 

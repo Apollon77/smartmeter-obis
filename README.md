@@ -16,3 +16,9 @@ This library is ...
 
 
 ### deviceProtocol
+
+
+
+## Todos
+* Add code, API and other Documentation
+* finalize tests in ObisNames (german/english) and remove mixtures
