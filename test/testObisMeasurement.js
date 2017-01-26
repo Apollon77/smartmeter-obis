@@ -64,6 +64,10 @@ describe('Test ObisMeasurement', function() {
         obis.addValue("234.567");
         expect(obis.valueToString()).to.be.equal("123.45678 kWh, 123.45678 kWh, 123.45678 kWh, 123.456 kWh, 234.567");
 
+        expect(obis.getValueLength()).to.be.equal(5);
+        expect(obis.getValue(4).value).to.be.equal(234.567);
+        expect(obis.getValue(4).unit).to.be.equal('');
+
 
         obis = new ObisMeasurement("1.8.1*255");
         obis.addValue(new Buffer("454d48", "hex"), 255);
@@ -73,5 +77,27 @@ describe('Test ObisMeasurement', function() {
         obis = new ObisMeasurement("1.8.1*255");
         obis.addValue(new Buffer("0901454d48000041f045", "hex"), 255);
         expect(obis.valueToString()).to.be.equal("0901454d48000041f045");
+    });
+
+    it('Test Get/Set Functions', function () {
+        var obis = new ObisMeasurement();
+        obis.setMedium(1);
+        obis.setChannel(0);
+        obis.setMeasurement(1);
+        obis.setMeasureType(8);
+        obis.setTariffRate(1);
+        obis.setPreviousMeasurement(255);
+        obis.setRawValue("0901454d48000041f045");
+
+        expect(obis.getMedium()).to.be.equal(1);
+        expect(obis.getChannel()).to.be.equal(0);
+        expect(obis.getMeasurement()).to.be.equal(1);
+        expect(obis.getMeasureType()).to.be.equal(8);
+        expect(obis.getTariffRate()).to.be.equal(1);
+        expect(obis.getPreviousMeasurement()).to.be.equal(255);
+        expect(obis.getRawValue()).to.be.equal("0901454d48000041f045");
+
+        expect(obis.idToString()).to.be.equal("1-0:1.8.1*255");
+
     });
 });
