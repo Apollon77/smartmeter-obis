@@ -75,7 +75,11 @@ VirtualSerialPort.prototype.close = function close(callback) {
     }
 };
 
-VirtualSerialPort.prototype.update = function update(options) {};
+VirtualSerialPort.prototype.update = function update(options, callback) {
+    if(callback) {
+        return callback();
+    }
+};
 
 VirtualSerialPort.prototype.isOpen = function isOpen() {
     return this.opened;
