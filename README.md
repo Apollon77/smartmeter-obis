@@ -74,37 +74,34 @@ To debug you can also use the special debug option in the options-array.
 
 
 ## Description of options
-
-{
-    "protocol": "SmlProtocol",
-    "transport": "SerialResponseTransport",
-
-    "transportSerialPort": "/dev/ir-usb0",
-    "transportSerialBaudrate": 9600,
-    "transportSerialDataBits": null, // number 	8 	Must be one of: 8, 7, 6, or 5.
-    "transportSerialStopBits": null, // number 	1 	Must be one of: 1 or 2.
-    "transportSerialParity": null,   // string 	"none" 	Must be one of: 'none', 'even', 'mark', 'odd', 'space'
-    "transportSerialMaxBufferSize": null,   // string 	"none" 	Must be one of: 'none', 'even', 'mark', 'odd', 'space'
-
-
-    "transportHttpRequestUrl": "",
-    "transportHttpRequestTimeout": 2000,
-
-    "transportLocalFilePath": "./test.sml",
-
-    "protocolD0WakeupCharacters": 40,
-    "protocolD0DeviceAddress": "Bla0"
-
-    "protocolSmlIgnoreInvalidCRC": false, // true/false
-
-
-    "requestInterval": 10, // in seconds, 0 means not to wait
-    "obisNameLanguage": "en",
-    "obisFallbackMedium": 6,
-
-    "debug": 1, // Debugging 0, 1, 2
-    "logger": function // Logging function that accepts message to log as parameter, no loglevel, default "console.log"
-}
+| Param | Type | Description |
+| --- | --- | --- |
+| **Basic configuration** |
+| [protocol] | <code>string</code> | required, value **SmlProtocol**, **D0Protocol** or **JsonEfrProtocol** |
+| [transport] | <code>string</code> | required, value **SerialResposeTransport**, **SerialRequestResposeTransport**, **HttpRequestTransport** or **LocalFileTransport** |
+| [requestInterval] | <code>number</code> | optional, number of seconds to wait for next request or pause serial receiving, value 0 possible to restart directly after finishing one message, Default: is 300 (=5 Minutes) |
+| **Transport specific options** |
+| [transportSerialPort] | <code>string</code> | required for Serial protocols, Serial device name, e.g. "/dev/ttyUSB0" |
+| [transportSerialBaudrate] | <code>number</code> | optional, baudrate for initial serial connection, if not defined default values per Transport type are used (9600 for SerialResponseTransprt and 300 for SerialRequestResponseTransport) |
+| [transportSerialDataBits] | <code>number</code> | optional, Must be one of: 8, 7, 6, or 5. |
+| [transportSerialStopBits] | <code>number</code> | optional, Must be one of: 1 or 2. |
+| [transportSerialParity] | <code>string</code> | optional, Must be one of: 'none', 'even', 'mark', 'odd', 'space' |
+| [transportSerialMaxBufferSize] | <code>number</code> | optional, default value is 300000 (means after 300000 bytes without a matching message an Error is thrown ) |
+| [transportHttpRequestUrl] | <code>string</code> | required for **HttpRequestTransport**, Request URL to query data from |
+| [transportHttpRequestTimeout] | <code>number</code> | optional for **HttpRequestTransport**, Timeout in ms, defaut 2000 |
+| [transportLocalFilePath] | <code>string</code> | required for **LocalFileTransport**, File patch to read data from |
+| **Protocol specific options** |
+| [protocolD0WakeupCharacters] | <code>number</code> | required for **D0Protocol**, number of wakeup NULL characters, default 0 |
+| [protocolD0DeviceAddress] | <code>string</code> | required for **D0Protocol**, device address for SignIn-Message, default empty |
+| [protocolSmlIgnoreInvalidCRC] | <code>boolean</code> | required for **SmlProtocol**, if false and CRC checksum is invalid an Error is thrown |
+| **OBIS options** |
+| [obisNameLanguage] | <code>string</code> | optional, language for name resolving, "de" and "en" allowed. Default "en" |
+| [obisFallbackMedium] | <code>number</code> | optional, if smartmeter do not return complete OBIS IDs (without medium info) this will be used as fallback for name resolving |
+| **Debugging options** |
+| [debug] | <code>number</code> | optional, values: 0 (no logging), 1 (basic logging), 2 (detailed logging), Default: 0 |
+| [logger] | <code>function</code> | optional, logging function that accepts one parameter to log a string. Default is "console.log" |
+| [options] |||
+| [options] | <code>object</code> | Only `baudRate` is currently supported |
 
 
 ## Library is tested with ...
@@ -117,5 +114,4 @@ Please send me an info on devices where you have used the library successfully a
 
 
 ## Todos
-* Add code, API and other Documentation
 * finalize tests in ObisNames (german/english) and remove mixtures
