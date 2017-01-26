@@ -3,8 +3,9 @@ os:
   - osx
 language: node_js
 node_js:
-  - "4"
-  - "6"
+  - '4'
+  - '6'
+  - '7'
 before_script:
   - cp test/patch-virtual-serialport/index.js node_modules/virtual-serialport/index.js
 after_success:
@@ -15,8 +16,8 @@ env:
 addons:
   apt:
     sources:
-    - ubuntu-toolchain-r-test
+      - ubuntu-toolchain-r-test
     packages:
-    - g++-4.8
+      - g++-4.8
   code_climate:
     repo_token: d99df312a727b3837593be2fe36c298d0322b3641f3cba7141c511f40e6c63f7
