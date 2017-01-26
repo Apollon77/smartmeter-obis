@@ -4,17 +4,17 @@ var nock = require('nock');
 var mock = require('mock-require');
 mock('serialport', 'virtual-serialport');
 
-describe("test HttpRequestTransport with JsonEfrProtocol", function() {
+describe('test HttpRequestTransport with JsonEfrProtocol', function() {
 
-    it("check output of two JSON messges", function(done){
+    it('check output of two JSON messges', function(done){
         this.timeout(600000); // because of first install from npm
 
         var SmartmeterObis = require('../index.js');
 
         var options = {
-            'protocol': "JsonEfrProtocol",
-            'transport': "HttpRequestTransport",
-            'transportSerialPort': "",
+            'protocol': 'JsonEfrProtocol',
+            'transport': 'HttpRequestTransport',
+            'transportSerialPort': '',
             'transportSerialBaudrate': 0,
             'requestInterval': 10,
             'transportHttpRequestUrl': 'http://test.efr-server.com/json',
@@ -36,14 +36,14 @@ describe("test HttpRequestTransport with JsonEfrProtocol", function() {
                 expect(obisResult['1-1:1.8.1*255'].rawValue).to.be.empty;
                 expect(obisResult['1-1:1.8.1*255'].values.length).to.be.equal(1);
                 expect(obisResult['1-1:1.8.1*255'].values[0].value).to.be.equal(255.16);
-                expect(obisResult['1-1:1.8.1*255'].values[0].unit).to.be.equal("kWh");
+                expect(obisResult['1-1:1.8.1*255'].values[0].unit).to.be.equal('kWh');
             }
             else if (counter === 1) {
                 expect(obisResult['1-0:2.8.0*128']).to.be.an('object');
                 expect(obisResult['1-0:2.8.0*128'].rawValue).to.be.empty;
                 expect(obisResult['1-0:2.8.0*128'].values.length).to.be.equal(1);
                 expect(obisResult['1-0:2.8.0*128'].values[0].value).to.be.equal(2.66);
-                expect(obisResult['1-0:2.8.0*128'].values[0].unit).to.be.equal("kWh");
+                expect(obisResult['1-0:2.8.0*128'].values[0].unit).to.be.equal('kWh');
             }
 
             if (!lastObisResult) {
@@ -53,11 +53,11 @@ describe("test HttpRequestTransport with JsonEfrProtocol", function() {
                 expect(counter).to.be.equal(1);
             }
 
-            console.log("Received data " + counter + ": " + Object.keys(obisResult));
+            console.log('Received data ' + counter + ': ' + Object.keys(obisResult));
             lastObisResult = obisResult;
             counter++;
             for (var obisId in obisResult) {
-                console.log(obisResult[obisId].idToString() + ": " + SmartmeterObis.ObisNames.resolveObisName(obisResult[obisId], options.obisNameLanguage).obisName + ' = ' + obisResult[obisId].valueToString());
+                console.log(obisResult[obisId].idToString() + ': ' + SmartmeterObis.ObisNames.resolveObisName(obisResult[obisId], options.obisNameLanguage).obisName + ' = ' + obisResult[obisId].valueToString());
             }
         }
 

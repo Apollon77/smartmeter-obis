@@ -74,13 +74,46 @@ To debug you can also use the special debug option in the options-array.
 
 
 ## Description of options
-* debug
-* ignore invalid SMl CRC
+
+{
+    "protocol": "SmlProtocol",
+    "transport": "SerialResponseTransport",
+
+    "transportSerialPort": "/dev/ir-usb0",
+    "transportSerialBaudrate": 9600,
+    "transportSerialDataBits": null, // number 	8 	Must be one of: 8, 7, 6, or 5.
+    "transportSerialStopBits": null, // number 	1 	Must be one of: 1 or 2.
+    "transportSerialParity": null,   // string 	"none" 	Must be one of: 'none', 'even', 'mark', 'odd', 'space'
+    "transportSerialMaxBufferSize": null,   // string 	"none" 	Must be one of: 'none', 'even', 'mark', 'odd', 'space'
+
+
+    "transportHttpRequestUrl": "",
+    "transportHttpRequestTimeout": 2000,
+
+    "transportLocalFilePath": "./test.sml",
+
+    "protocolD0WakeupCharacters": 40,
+    "protocolD0DeviceAddress": "Bla0"
+
+    "protocolSmlIgnoreInvalidCRC": false, // true/false
+
+
+    "requestInterval": 10, // in seconds, 0 means not to wait
+    "obisNameLanguage": "en",
+    "obisFallbackMedium": 6,
+
+    "debug": 1, // Debugging 0, 1, 2
+    "logger": function // Logging function that accepts message to log as parameter, no loglevel, default "console.log"
+}
+
 
 ## Library is tested with ...
+... at least:
 * Hager eHz Energy Meter
 * EFR SmartGridHub
 * Siemens 2WR5 reader from an private heat station
+
+Please send me an info on devices where you have used the library successfully and I will add it here.
 
 
 ## Todos

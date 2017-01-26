@@ -1,7 +1,7 @@
 var D0Protocol = require('./lib/protocols/D0Protocol');
 var JsonEfrProtocol = require('./lib/protocols/JsonEfrProtocol');
 var SmlProtocol = require('./lib/protocols/SmlProtocol');
-//var SmlUnits = require('./lib/protocols/SmlUnits');
+var SmlUnits = require('./lib/protocols/SmlUnits');
 
 var HttpRequestTransport = require('./lib/transports/HttpRequestTransport');
 var LocalFileTransport = require('./lib/transports/LocalFileTransport');
@@ -12,6 +12,13 @@ var ObisMeasurement = require('./lib/ObisMeasurement');
 var ObisNames = require('./lib/ObisNames');
 
 function init(options, writeDataCallback) {
+    if (!options.logger || typeof options.logger !== 'function') {
+        options.logger = console.log;
+    }
+    if (options.debug === undefined) {
+        options.debug = 0;
+    }
+
     var smProtocol;
     switch(options.protocol) {
         case 'D0Protocol':
@@ -54,7 +61,7 @@ module.exports = {
     D0Protocol: D0Protocol,
     JsonEfrProtocol: JsonEfrProtocol,
     SmlProtocol: SmlProtocol,
-    //SmlUnits: SmlUnits,
+    SmlUnits: SmlUnits,
     HttpRequestTransport: HttpRequestTransport,
     LocalFileTransport: LocalFileTransport,
     SerialRequestResponseTransport: SerialRequestResponseTransport,
