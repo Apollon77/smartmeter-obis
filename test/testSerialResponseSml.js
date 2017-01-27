@@ -21,7 +21,7 @@ describe('test SerialResponseTransport with SMLProtocol', function() {
             'obisNameLanguage': 'en'
         };
 
-        var lastObisResult = undefined;
+        var lastObisResult;
         var counter = 0;
 
         function testStoreData(obisResult) {
@@ -67,9 +67,9 @@ describe('test SerialResponseTransport with SMLProtocol', function() {
                 smTransport.serialComm.writeToComputer(testData);
 
                 setTimeout(function() {
+                    smTransport.stop();
                     expect(counter).to.be.equal(2);
                     expect(smTransport.serialConnected).to.be.false;
-                    smTransport.serialComm.removeAllListeners();
                     done();
                 }, 3000);
             }, 15000);

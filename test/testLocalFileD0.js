@@ -61,11 +61,10 @@ describe('test LocalFileTransport with D0Protocol', function() {
 
         var smTransport = SmartmeterObis.init(options, testStoreData);
 
-        smTransport.init();
-
         smTransport.process();
 
         setTimeout(function() {
+            smTransport.stop();
             expect(counter).to.be.equal(2);
             fs.unlinkSync(options.transportLocalFilePath);
             done();

@@ -22,7 +22,7 @@ describe('test SerialResponseTransport with D0 Mode D', function() {
             'transportHttpRequestUrl': ''
         };
 
-        var lastObisResult = null;
+        var lastObisResult;
         var counter = 0;
 
         function testStoreData(obisResult) {
@@ -76,11 +76,11 @@ describe('test SerialResponseTransport with D0 Mode D', function() {
                     smTransport.serialComm.writeToComputer(testData);
 
                     setTimeout(function() {
+                        smTransport.stop();
                         expect(counter).to.be.equal(2);
                         expect(smTransport.protocol.deviceManufacturer).to.be.equal('SIE');
                         expect(smTransport.protocol.commBaudrateChangeover).to.be.equal(2400);
                         expect(smTransport.serialConnected).to.be.false;
-                        smTransport.serialComm.removeAllListeners();
                         done();
                     }, 2000);
                 }, 100);

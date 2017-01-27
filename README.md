@@ -58,7 +58,7 @@ var smTransport = SmartmeterObis.init(options, displayData);
 
 smTransport.process();
 
-setTimeout(process.exit, 60000);
+setTimeout(smTransport.stop, 60000);
 
 ```
 
@@ -69,9 +69,11 @@ Therefor you use the **init(options, storeCallback)** method and provide an opti
 The **init(options, storeCallback)** returns the initialized Transport instance to use to control the dataflow.
 
 Everything else to do is to call the **process()** method from the returned Transport instance and the whole magic happends in the background. The called method can throw an Error as soon as invalid messages are received.
+In normal operation the process requests or receives the data in the defined intervals. Call **stop()** method from Transport instance to do a clean stop.
 
 To debug you can also use the special debug option in the options-array.
 
+The process
 
 ## Description of options
 | Param | Type | Description |
@@ -107,6 +109,7 @@ To debug you can also use the special debug option in the options-array.
 ## Library is tested with ...
 ... at least:
 * Hager eHz Energy Meter
+* EMH Energy Meter
 * EFR SmartGridHub
 * Siemens 2WR5 reader from an private heat station
 

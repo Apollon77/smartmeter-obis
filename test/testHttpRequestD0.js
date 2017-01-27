@@ -65,6 +65,7 @@ describe('test HttpRequestTransport with JsonEfrProtocol', function() {
         smTransport.process();
 
         setTimeout(function() {
+            smTransport.stop();
             expect(counter).to.be.equal(2);
             done();
         }, 12000);

@@ -23,7 +23,7 @@ describe('test SerialRequestResponseTransport with D0Protocol With Ack', functio
             'transportHttpRequestUrl': ''
         };
 
-        var lastObisResult = null;
+        var lastObisResult;
         var counter = 0;
 
         function testStoreData(obisResult) {
@@ -73,11 +73,11 @@ describe('test SerialRequestResponseTransport with D0Protocol With Ack', functio
 
                 if (!endTimer) {
                     endTimer = setTimeout(function() {
+                        smTransport.stop();
                         expect(counter).to.be.equal(2);
                         expect(smTransport.protocol.deviceManufacturer).to.be.equal('SIE');
                         expect(smTransport.protocol.commBaudrateChangeover).to.be.equal(2400);
                         expect(smTransport.serialConnected).to.be.false;
-                        smTransport.serialComm.removeAllListeners();
                         done();
                     }, 12000);
                 }
