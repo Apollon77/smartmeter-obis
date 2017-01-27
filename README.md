@@ -118,3 +118,15 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Todos
 * finalize tests in ObisNames (german/english) and remove mixtures
+
+## Changelog
+
+### v0.2.1
+* aded changelog to README :-)
+* small fix in Serial*Transport classes
+* changed codeclimate config to ignore code duplication warnings
+
+### v0.0.1-0.2.0
+* initial development, testing and real-live usage with optimizations
+* incorporated first feedback from external users
+* initial fully working version is 0.2.0
