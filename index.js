@@ -18,9 +18,6 @@ function init(options, writeDataCallback) {
     if (options.debug === undefined) {
         options.debug = 0;
     }
-    if (options.obisNameLanguage === undefined) {
-        options.obisNameLanguage = 'en';
-    }
     if (options.requestInterval === undefined) {
         options.requestInterval = 300;
     }
