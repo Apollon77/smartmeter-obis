@@ -102,8 +102,7 @@ The process
 | **Debugging options** |
 | [debug] | <code>number</code> | optional, values: 0 (no logging), 1 (basic logging), 2 (detailed logging), Default: 0 |
 | [logger] | <code>function</code> | optional, logging function that accepts one parameter to log a string. Default is "console.log" |
-| [options] |||
-| [options] | <code>object</code> | Only `baudRate` is currently supported |
+
 
 
 ## Library is tested with ...
@@ -120,6 +119,9 @@ Please send me an info on devices where you have used the library successfully a
 * finalize tests in ObisNames (german/english) and remove mixtures
 
 ## Changelog
+
+### v0.2.2
+* README fix on options list
 
 ### v0.2.1
 * aded changelog to README :-)
