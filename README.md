@@ -21,8 +21,8 @@ Supported Protocols:
 * **JsonEfrProtocol**: OBIS data from EFR Smart Grid Hub (JSON format)
 
 Supported Transports (how to receive the data):
-* **SerialResposeTransport**: receive through serial push data (smartmeter send data without any request on regular intervals). Mostly used for SML
-* **SerialRequestResposeTransport**: rD0 protocol in modes A, B, C and D (mode E curently NOT supported!) with Wakeup-, Signon-, pot. ACK- and Data-messages to read out data (programing/write mode not implemented so far)
+* **SerialResponseTransport**: receive through serial push data (smartmeter send data without any request on regular intervals). Mostly used for SML
+* **SerialRequestResponseTransport**: D0 protocol in modes A, B, C and D (mode E curently NOT supported!) with Wakeup-, Signon-, pot. ACK- and Data-messages to read out data (programing/write mode not implemented so far)
 * **HttpRequestTransport**: Read data via HTTP by requesting an defined URL
 * **LocalFileTransport**: Read data from a local file
 
