@@ -94,8 +94,8 @@ The process
 | [transportLocalFilePath] | <code>string</code> | required for **LocalFileTransport**, File patch to read data from |
 | **Protocol specific options** |
 | [protocolD0WakeupCharacters] | <code>number</code> | optional for **D0Protocol**, number of wakeup NULL characters, default 0 |
-| [protocolD0DeviceAddress] | <code>string</code> | optional for **D0Protocol**, device address for SignIn-Message, default empty |
-| [protocolD0SignOnMessage] | <code>string</code> | optional for **D0Protocol**, device address for SignIn-Message, default "?" to query mandatory fields, other values depending on device |
+| [protocolD0DeviceAddress] | <code>string</code> | optional for **D0Protocol**, device address (max 32 characters) for SignIn-Message, default empty |
+| [protocolD0SignOnMessage] | <code>string</code> | optional for **D0Protocol**, command for SignIn-Message, default "?" to query mandatory fields, other values depending on device |
 | [protocolSmlIgnoreInvalidCRC] | <code>boolean</code> | required for **SmlProtocol**, if false and CRC checksum is invalid an Error is thrown |
 | **OBIS options** |
 | [obisFallbackMedium] | <code>number</code> | optional, if smartmeter do not return complete OBIS IDs (without medium info) this will be used as fallback for name resolving |
@@ -122,7 +122,7 @@ Please send me an info on devices where you have used the library successfully a
 
 ### v0.2.2
 * README fix on options list
-* remove unneeded/unused option 
+* remove unneeded/unused option
 
 ### v0.2.1
 * aded changelog to README :-)
