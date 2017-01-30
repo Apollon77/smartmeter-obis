@@ -120,6 +120,10 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
+### v0.2.3
+* fix exception on "stop" method
+* README fixes
+
 ### v0.2.2
 * README fix on options list
 * remove unneeded/unused option
