@@ -120,6 +120,9 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
+### v0.2.4
+* finally fix exception on "stop" method
+
 ### v0.2.3
 * fix exception on "stop" method
 * README fixes
