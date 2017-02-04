@@ -121,6 +121,9 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
+### v0.2.6 (04.02.2017)
+* Optimizations on serial handling for some weired SIGABRT cases
+
 ### v0.2.5
 * add optional option "transportSerialMessageTimeout" with default of 60s to make sure the process do not hand forever when missing response from device on bi-directional communication
 
