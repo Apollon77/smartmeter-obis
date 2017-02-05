@@ -97,6 +97,8 @@ The process
 | [protocolD0WakeupCharacters] | <code>number</code> | optional for **D0Protocol**, number of wakeup NULL characters, default 0 |
 | [protocolD0DeviceAddress] | <code>string</code> | optional for **D0Protocol**, device address (max 32 characters) for SignIn-Message, default empty |
 | [protocolD0SignOnMessage] | <code>string</code> | optional for **D0Protocol**, command for SignIn-Message, default "?" to query mandatory fields, other values depending on device |
+| [protocolD0ModeOverwrite] | <code>string</code> | optional for **D0Protocol**, to ignore the mode send by the device set the correct D0 mode here. The mode send by the device in the identification message is ignored |
+| [protocolD0BaudrateChangeoverOverwrite] | <code>number</code> | optional for **D0Protocol**, when the D0 mode needs a baudrate changeover, but the device information from identification message is wrong, overwrite with this value |
 | [protocolSmlIgnoreInvalidCRC] | <code>boolean</code> | required for **SmlProtocol**, if false and CRC checksum is invalid an Error is thrown |
 | **OBIS options** |
 | [obisFallbackMedium] | <code>number</code> | optional, if smartmeter do not return complete OBIS IDs (without medium info) this will be used as fallback for name resolving |
@@ -120,6 +122,11 @@ Please send me an info on devices where you have used the library successfully a
 * finalize tests in ObisNames (german/english) and remove mixtures
 
 ## Changelog
+
+### v0.3.0 (05.02.2017)
+* support also some letters as measurement-Type (some devices send "F.F")
+* allow overwriting of D0 Modus and D0 Baudrate Changeover (because some devices send a wrong identification)
+* do not throw error when mode E is detected, but log ... maybe some data are useable
 
 ### v0.2.6/v0.2.7 (04.02.2017)
 * Optimizations on serial handling for some weired SIGABRT cases
