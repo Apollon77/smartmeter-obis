@@ -123,6 +123,9 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
+### v0.3.1 (06.02.2017)
+* optimize memory handling
+
 ### v0.3.0 (05.02.2017)
 * support also some letters as measurement-Type (some devices send "F.F")
 * allow overwriting of D0 Modus and D0 Baudrate Changeover (because some devices send a wrong identification)
