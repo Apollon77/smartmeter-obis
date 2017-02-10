@@ -123,6 +123,14 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
+### v0.3.3 (10.02.2017)
+* optimizations
+* use own open-sml repository as basis for installation (not ideal but used till acceptance of pull-request)
+
+### v0.3.2 (07.02.2017)
+* add testing for real simulated serialport as manual testscript
+* fix debug logging
+
 ### v0.3.1 (06.02.2017)
 * optimize memory handling
 
