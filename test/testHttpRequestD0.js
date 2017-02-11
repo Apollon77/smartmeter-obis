@@ -4,7 +4,7 @@ var nock = require('nock');
 var mock = require('mock-require');
 mock('serialport', 'virtual-serialport');
 
-describe('test HttpRequestTransport with JsonEfrProtocol', function() {
+describe('test HttpRequestTransport with D0Protocol', function() {
 
     it('check output of two JSON messges', function(done){
         this.timeout(600000); // because of first install from npm
@@ -19,7 +19,8 @@ describe('test HttpRequestTransport with JsonEfrProtocol', function() {
             'requestInterval': 10,
             'transportHttpRequestUrl': 'http://test.efr-server.com/d0',
             'obisNameLanguage': 'en',
-            'obisFallbackMedium': 6
+            'obisFallbackMedium': 6,
+            'debug': 2
         };
 
         var lastObisResult;

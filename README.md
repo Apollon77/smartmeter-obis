@@ -123,6 +123,9 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
+### v0.3.4 (11.02.2017)
+* optimizations on D0 message handling
+
 ### v0.3.3 (10.02.2017)
 * optimizations
 * use own open-sml repository as basis for installation (not ideal but used till acceptance of pull-request)

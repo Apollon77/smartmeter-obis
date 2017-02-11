@@ -16,7 +16,7 @@ describe('test SerialRequestResponseTransport with D0Protocol with Mode-Overwrit
             'transport': 'SerialRequestResponseTransport',
             'transportSerialPort': '/dev/ir-usb1',
             'transportSerialBaudrate': 300,
-            'protocolD0WakeupCharacters': 40,
+            'protocolD0WakeupCharacters': 0,
             'protocolD0ModeOverwrite': 'A',
             'protocolD0BaudrateChangeoverOverwrite': 500,
             'requestInterval': 10,
@@ -64,15 +64,12 @@ describe('test SerialRequestResponseTransport with D0Protocol with Mode-Overwrit
         var endTimer = null;
         smTransport.serialComm.on('dataToDevice', function(data) {
             //console.log('RECEIVED ' + data.length + ': ' + JSON.stringify(data));
-            if (data === '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0') {
-                //console.log('WAKE UP DONE');
-            }
-            else if (data === '/?!\r\n') {
+            if (data === '/?!\r\n') {
                 //console.log('SEND Identification Message');
-                var testData = new Buffer('/ITR5EM214\r\n');
+                var testData = new Buffer('/?!\r\n/ITR5EM214\r\n');
                 smTransport.serialComm.writeToComputer(testData);
 
-                var testData = new Buffer('\u0002F.F(00000000)\r\n0.0.0(1240007670003202)\r\n0.2.0(V01.69#EEA3546C)\r\n0.2.1(00017245)\r\n1.7.0(00.00*kW)\r\n2.7.0(00.62*kW)\r\n1.8.1(021900.4*kWh)\r\n1.8.2(000000.0*kWh)\r\n2.8.1(010443.7*kWh)\r\n2.8.2(000000.0*kWh)\r\n31.7.0(-001.1*A)\r\n51.7.0(-000.8*A)\r\n71.7.0(-001.6*A)\r\nC.1(53965555)\r\nC.5.0(L1-L2-L3)\r\nC.6.3(03.77*V)\r\nC.8.1(024475.29*h)\r\nC.8.2(000000.00*h)\r\nC.13.21(00000001*secs)\r\nC.13.22(00000001)\r\nC.90(00000100)\r\n!\r\n');
+                var testData = new Buffer('\u0002F.F(00000000)\r\n0.0.0(1240007670003202)\r\n0.2.0(V01.69#EEA3546C)\r\n0.2.1(00017245)\r\n1.7.0(00.49*kW)\r\n2.7.0(00.00*kW)\r\n1.8.1(022108.7*kWh)\r\n1.8.2(000000.0*kWh)\r\n2.8.1(010452.0*kWh)\r\n2.8.2(000000.0*kWh)\r\n31.7.0(+000.8*A)\r\n51.7.0(+000.7*A)\r\n71.7.0(+001.2*A)\r\nC.1(53965555)\r\nC.5.0(L1-L2-L3)\r\nC.6.3(03.78*V)\r\nC.8.1(024616.21*h)\r\nC.8.2(000000.00*h)\r\nC.13.21(00000001*secs)\r\nC.13.22(00000001)\r\nC.90(00000100)\r\n!\r\n');
                 smTransport.serialComm.writeToComputer(testData);
 
                 if (!endTimer) {
