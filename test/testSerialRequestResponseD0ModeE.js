@@ -1,3 +1,4 @@
+/*jshint expr: true*/
 var chai = require('chai');
 var expect = chai.expect;
 var mock = require('mock-require');
@@ -69,7 +70,7 @@ describe('test SerialRequestResponseTransport with D0Protocol with Mode E', func
                 var testData = new Buffer('/ACE0\\3k260V01.18\r\n');
                 smTransport.serialComm.writeToComputer(testData);
 
-                var testData = new Buffer('\u0002F.F(00)\r\nC.1(1234567890123456)\r\nC.5.0(00)\r\n1.8.0(000285.4*kWh)\r\n2.8.0(000120.1*kWh)\r\n!\r\n');
+                testData = new Buffer('\u0002F.F(00)\r\nC.1(1234567890123456)\r\nC.5.0(00)\r\n1.8.0(000285.4*kWh)\r\n2.8.0(000120.1*kWh)\r\n!\r\n');
                 smTransport.serialComm.writeToComputer(testData);
 
                 if (!endTimer) {
