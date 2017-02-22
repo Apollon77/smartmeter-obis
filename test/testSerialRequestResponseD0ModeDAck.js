@@ -4,7 +4,7 @@ var expect = chai.expect;
 var mock = require('mock-require');
 mock('serialport', 'virtual-serialport');
 
-describe('test SerialRequestResponseTransport with D0Protocol with Mode E', function() {
+describe('test SerialRequestResponseTransport with D0Protocol with Mode D', function() {
 
     it('check output of two D0 messges', function(done){
         this.timeout(600000); // because of first install from npm
@@ -67,7 +67,11 @@ describe('test SerialRequestResponseTransport with D0Protocol with Mode E', func
             }
             else if (data === '/?!\r\n') {
                 //console.log('SEND Identification Message');
-                var testData = new Buffer('/ACE0\\3k260V01.18\r\n');
+                var testData = new Buffer('/ELS5\\@V9.30 \r\n');
+                smTransport.serialComm.writeToComputer(testData);
+            }
+            else if (data === '\u0006050\r\n') {
+                testData = new Buffer('\u0006\r\n');
                 smTransport.serialComm.writeToComputer(testData);
 
                 testData = new Buffer('\u0002F.F(00)\r\nC.1(1234567890123456)\r\nC.5.0(00)\r\n1.8.0(000285.4*kWh)\r\n2.8.0(000120.1*kWh)\r\n!\r\n');
@@ -77,7 +81,7 @@ describe('test SerialRequestResponseTransport with D0Protocol with Mode E', func
                     endTimer = setTimeout(function() {
                         smTransport.stop();
                         expect(counter).to.be.equal(2);
-                        expect(smTransport.protocol.deviceManufacturer).to.be.equal('ACE');
+                        expect(smTransport.protocol.deviceManufacturer).to.be.equal('ELS');
                         expect(smTransport.protocol.commMode).to.be.equal('E');
                         expect(smTransport.serialConnected).to.be.false;
                         done();

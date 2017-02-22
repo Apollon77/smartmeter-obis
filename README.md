@@ -89,7 +89,7 @@ The process
 | [transportSerialStopBits] | <code>number</code> | optional, Must be one of: 1 or 2. |
 | [transportSerialParity] | <code>string</code> | optional, Must be one of: 'none', 'even', 'mark', 'odd', 'space' |
 | [transportSerialMaxBufferSize] | <code>number</code> | optional, default value is 300000 (means after 300000 bytes without a matching message an Error is thrown ) |
-| [transportSerialMessageTimeout] | <code>number</code> | ms, optional, default value is 60000 (means after 60000ms without a matching message or new data an Error is thrown ) |
+| [transportSerialMessageTimeout] | <code>number</code> | ms, optional, default value is 120000 (means after 120000ms without a matching message or new data an Error is thrown ) |
 | [transportHttpRequestUrl] | <code>string</code> | required for **HttpRequestTransport**, Request URL to query data from |
 | [transportHttpRequestTimeout] | <code>number</code> | optional for **HttpRequestTransport**, Timeout in ms, defaut 2000 |
 | [transportLocalFilePath] | <code>string</code> | required for **LocalFileTransport**, File patch to read data from |
@@ -122,6 +122,9 @@ Please send me an info on devices where you have used the library successfully a
 * finalize tests in ObisNames (german/english) and remove mixtures
 
 ## Changelog
+
+### v0.3.5 (22.02.2017)
+* optimizations on D0 message handling for mode E
 
 ### v0.3.4 (11.02.2017)
 * optimizations on D0 message handling

@@ -21,7 +21,8 @@ describe('test SerialRequestResponseTransport with D0Protocol With Ack', functio
             'protocolD0WakeupCharacters': 40,
             'protocolD0DeviceAddress': 'Bla0',
             'requestInterval': 10,
-            'transportHttpRequestUrl': ''
+            'transportHttpRequestUrl': '',
+            'debug': 0
         };
 
         var lastObisResult;
