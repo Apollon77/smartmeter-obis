@@ -114,6 +114,7 @@ The process
 * EMH Energy Meter
 * EFR SmartGridHub
 * Siemens 2WR5 reader from an private heat station
+* Elster AS1440
 
 Please send me an info on devices where you have used the library successfully and I will add it here.
 
