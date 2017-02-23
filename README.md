@@ -123,6 +123,9 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
+### v0.4.0 (23.02.2017)
+* optimizations for SerialRequestResponseTransport for D0 Protocol
+
 ### v0.3.5 (22.02.2017)
 * optimizations on D0 message handling for mode E
 
