@@ -124,7 +124,7 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
-### v0.5.0 (26.02.2017)
+### v0.5.1 (26.02.2017)
 * maintenance update
 
 ### v0.4.1 (24.02.2017)
