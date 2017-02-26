@@ -124,6 +124,9 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
+### v0.4.2 (26.02.2017)
+* remove usage of serial pause ... maybe this fixes the memory problems
+
 ### v0.4.1 (24.02.2017)
 * fix potential hanging communication for special SerialRequestResponseTransfer cases
 
