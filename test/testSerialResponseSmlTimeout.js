@@ -4,7 +4,7 @@ var expect = chai.expect;
 var mock = require('mock-require');
 mock('serialport', 'virtual-serialport');
 
-describe('test SerialRequestResponseTransport Timeout with D0Protocol', function() {
+describe('test SerialResponseTransport Timeout with SmlProtocol', function() {
 
     it('check timeout', function(done) {
         this.timeout(600000); // because of first install from npm
@@ -12,16 +12,13 @@ describe('test SerialRequestResponseTransport Timeout with D0Protocol', function
         var SmartmeterObis = require('../index.js');
 
         var options = {
-            'protocol': 'D0Protocol',
-            'transport': 'SerialRequestResponseTransport',
-            'transportSerialPort': '/dev/ir-usb1',
-            'transportSerialBaudrate': 300,
-            'protocolD0WakeupCharacters': 40,
-            'protocolD0DeviceAddress': 'Bla0',
+            'protocol': 'SmlProtocol',
+            'transport': 'SerialResponseTransport',
+            'transportSerialPort': '/dev/ir-usb0',
+            'transportSerialBaudrate': 9600,
             'requestInterval': 10,
             'transportHttpRequestUrl': '',
             'obisNameLanguage': 'en',
-            'obisFallbackMedium': 6,
             'transportSerialMessageTimeout': 10000,
             'debug': 0
         };
@@ -44,8 +41,10 @@ describe('test SerialRequestResponseTransport Timeout with D0Protocol', function
             console.log('CATCHED');
             if (originalException) process.listeners('uncaughtException').push(originalException);
             expect(err).to.be.an.instanceof(Error);
-            expect(err.message).to.be.equal('No or too long answer from Serial Device after last request.');
+            expect(err.message).to.be.equal('No or too long message from Serial Device.');
             expect(counter).to.be.equal(0);
+
+            smTransport.stop();
             done();
         });
 

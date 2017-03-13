@@ -66,13 +66,13 @@ describe('test SerialResponseTransport with SMLProtocol', function() {
         }, 5000);
 
         setTimeout(function() {
+            clearInterval(sendInterval);
             smTransport.stop();
-
             setTimeout(function() {
                 expect(counter).to.be.equal(2);
                 expect(smTransport.serialConnected).to.be.false;
                 done();
-            }, 2000);
+            }, 500);
         }, 11000);
     });
 });
