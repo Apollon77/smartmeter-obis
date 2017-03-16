@@ -46,7 +46,7 @@ describe('test SerialRequestResponseTransport Timeout with D0Protocol', function
             expect(err).to.be.an.instanceof(Error);
             expect(err.message).to.be.equal('No or too long answer from Serial Device after last request.');
             expect(counter).to.be.equal(0);
-            done();
+            setTimeout(done, 1000);
         });
 
         smTransport.process();

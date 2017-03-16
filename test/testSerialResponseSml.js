@@ -5,7 +5,7 @@ var mock = require('mock-require');
 
 describe('test SerialResponseTransport with SMLProtocol', function() {
 
-    it('check output of two SML messges', function(done){
+    it('check output of two SML messages', function(done){
         this.timeout(600000); // because of first install from npm
 
         mock('serialport', 'virtual-serialport');
@@ -71,7 +71,7 @@ describe('test SerialResponseTransport with SMLProtocol', function() {
                     smTransport.stop();
                     expect(counter).to.be.equal(2);
                     expect(smTransport.serialConnected).to.be.false;
-                    done();
+                    setTimeout(done, 1000);
                 }, 3000);
             }, 15000);
         }, 5000);

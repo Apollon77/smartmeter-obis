@@ -6,7 +6,7 @@ mock('serialport', 'virtual-serialport');
 
 describe('test SerialRequestResponseTransport with D0Protocol with Mode E', function() {
 
-    it('check output of two D0 messges', function(done){
+    it('check output of two D0 messages', function(done){
         this.timeout(600000); // because of first install from npm
 
 
@@ -22,7 +22,7 @@ describe('test SerialRequestResponseTransport with D0Protocol with Mode E', func
             'transportHttpRequestUrl': '',
             'obisNameLanguage': 'en',
             'obisFallbackMedium': 1,
-            'debug': 0
+            'debug': 2
         };
 
         var lastObisResult;
@@ -69,7 +69,8 @@ describe('test SerialRequestResponseTransport with D0Protocol with Mode E', func
                 //console.log('SEND Identification Message');
                 var testData = new Buffer('/ACE0\\3k260V01.18\r\n');
                 smTransport.serialComm.writeToComputer(testData);
-
+            }
+            else if (data === '\u0006000\r\n') {
                 testData = new Buffer('\u0002F.F(00)\r\nC.1(1234567890123456)\r\nC.5.0(00)\r\n1.8.0(000285.4*kWh)\r\n2.8.0(000120.1*kWh)\r\n!\r\n');
                 smTransport.serialComm.writeToComputer(testData);
 
@@ -80,7 +81,7 @@ describe('test SerialRequestResponseTransport with D0Protocol with Mode E', func
                         expect(smTransport.protocol.deviceManufacturer).to.be.equal('ACE');
                         expect(smTransport.protocol.commMode).to.be.equal('E');
                         expect(smTransport.serialConnected).to.be.false;
-                        done();
+                        setTimeout(done, 1000);
                     }, 13000);
                 }
             }

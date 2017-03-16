@@ -6,7 +6,7 @@ mock('serialport', 'virtual-serialport');
 
 describe('test SerialRequestResponseTransport with D0Protocol with Mode-Overwrite', function() {
 
-    it('check output of two D0 messges', function(done){
+    it('check output of two D0 messages', function(done){
         this.timeout(600000); // because of first install from npm
 
 
@@ -24,7 +24,7 @@ describe('test SerialRequestResponseTransport with D0Protocol with Mode-Overwrit
             'transportHttpRequestUrl': '',
             'obisNameLanguage': 'en',
             'obisFallbackMedium': 1,
-            'debug': 0
+            'debug': 2
         };
 
         var lastObisResult;
@@ -80,7 +80,7 @@ describe('test SerialRequestResponseTransport with D0Protocol with Mode-Overwrit
                         expect(smTransport.protocol.deviceManufacturer).to.be.equal('ITR');
                         expect(smTransport.protocol.commMode).to.be.equal('A');
                         expect(smTransport.serialConnected).to.be.false;
-                        done();
+                        setTimeout(done, 1000);
                     }, 13000);
                 }
             }

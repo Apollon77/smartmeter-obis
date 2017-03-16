@@ -6,7 +6,7 @@ mock('serialport', 'virtual-serialport');
 
 describe('test SerialRequestResponseTransport with D0Protocol with Mode D', function() {
 
-    it('check output of two D0 messges', function(done){
+    it('check output of two D0 messages', function(done){
         this.timeout(600000); // because of first install from npm
 
 
@@ -84,7 +84,7 @@ describe('test SerialRequestResponseTransport with D0Protocol with Mode D', func
                         expect(smTransport.protocol.deviceManufacturer).to.be.equal('ELS');
                         expect(smTransport.protocol.commMode).to.be.equal('E');
                         expect(smTransport.serialConnected).to.be.false;
-                        done();
+                        setTimeout(done, 1000);
                     }, 13000);
                 }
             }

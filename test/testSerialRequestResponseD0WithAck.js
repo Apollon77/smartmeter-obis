@@ -6,7 +6,7 @@ var mock = require('mock-require');
 describe('test SerialRequestResponseTransport with D0Protocol With Ack', function() {
 
 
-    it('check output of two D0 messges', function(done){
+    it('check output of two D0 messages', function(done){
         this.timeout(600000); // because of first install from npm
 
         mock('serialport', 'virtual-serialport');
@@ -81,7 +81,7 @@ describe('test SerialRequestResponseTransport with D0Protocol With Ack', functio
                         expect(smTransport.protocol.deviceManufacturer).to.be.equal('SIE');
                         expect(smTransport.protocol.commBaudrateChangeover).to.be.equal(2400);
                         expect(smTransport.serialConnected).to.be.false;
-                        done();
+                        setTimeout(done, 1000);
                     }, 12000);
                 }
             }

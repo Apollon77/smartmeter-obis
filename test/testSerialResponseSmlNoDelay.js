@@ -71,7 +71,7 @@ describe('test SerialResponseTransport with SMLProtocol', function() {
             setTimeout(function() {
                 expect(counter).to.be.equal(2);
                 expect(smTransport.serialConnected).to.be.false;
-                done();
+                setTimeout(done, 1000);
             }, 500);
         }, 11000);
     });

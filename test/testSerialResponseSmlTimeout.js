@@ -45,7 +45,7 @@ describe('test SerialResponseTransport Timeout with SmlProtocol', function() {
             expect(counter).to.be.equal(0);
 
             smTransport.stop();
-            done();
+            setTimeout(done, 1000);
         });
 
         smTransport.process();
