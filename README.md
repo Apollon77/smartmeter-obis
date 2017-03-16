@@ -124,6 +124,9 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
+### v0.5.3 (16.03.2017)
+* Further optimizations for D0 protocol
+
 ### v0.5.2 (14.03.2017)
 * integrate MessageTimeout also for SerialResponseTransport to avoid unparsed message cases
 
