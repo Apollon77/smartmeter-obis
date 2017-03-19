@@ -40,7 +40,9 @@ describe('test SerialRequestResponseTransport with D0Protocol', function() {
             expect(obisResult['6-0:6.8'].values.length).to.be.equal(1);
             expect(obisResult['6-0:6.8'].values[0].value).to.be.equal(29.055);
             expect(obisResult['6-0:6.8'].values[0].unit).to.be.equal('MWh');
-
+            expect(obisResult['6-0:6.8'].values[0].unit).to.be.equal('MWh');
+            expect(Object.keys(obisResult).length).to.be.equal(50);
+            
             if (!lastObisResult) {
                 expect(counter).to.be.equal(0);
             }
