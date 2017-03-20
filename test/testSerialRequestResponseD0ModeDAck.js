@@ -22,7 +22,7 @@ describe('test SerialRequestResponseTransport with D0Protocol with Mode D', func
             'transportHttpRequestUrl': '',
             'obisNameLanguage': 'en',
             'obisFallbackMedium': 1,
-            'debug': 2
+            'debug': 0
         };
 
         var lastObisResult;

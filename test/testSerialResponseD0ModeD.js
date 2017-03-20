@@ -21,7 +21,7 @@ describe('test SerialResponseTransport with D0 Mode D', function() {
             'protocolD0DeviceAddress': 'Bla0',
             'requestInterval': 10,
             'transportHttpRequestUrl': '',
-            'debug': 2
+            'debug': 0
         };
 
         var lastObisResult;

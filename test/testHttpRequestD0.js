@@ -21,7 +21,7 @@ describe('test HttpRequestTransport with D0Protocol', function() {
             'transportHttpRequestUrl': 'http://test.efr-server.com/d0',
             'obisNameLanguage': 'en',
             'obisFallbackMedium': 6,
-            'debug': 2
+            'debug': 0
         };
 
         var lastObisResult;
