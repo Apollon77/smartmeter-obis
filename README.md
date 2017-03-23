@@ -110,11 +110,13 @@ The process
 
 ## Library is tested with ...
 ... at least:
-* Hager eHz Energy Meter
+* Hager eHz Energy Meter (multiple, e.g. eHZ-IW8E2A5L0EK2P, EHZ363W5, )
 * EMH Energy Meter
 * EFR SmartGridHub
-* Siemens 2WR5 reader from an private heat station
+* Siemens 2WR5 reader from an heat station
 * Elster AS1440
+* Iskraemeco MT174
+* Itron EM214 Typ 720
 
 Please send me an info on devices where you have used the library successfully and I will add it here.
 
