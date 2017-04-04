@@ -126,6 +126,9 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
+### v0.5.6 (04.04.2017)
+* Windows do not support pause and resume on SerialPort
+
 ### v0.5.5 (19.03.2017)
 * Further optimizations for D0 protocol and baudrate changover logic
 * enhanced D0 protocol support for multiple values
