@@ -126,6 +126,9 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
+### v0.5.7 (08.05.2017)
+* Handle special problem cases with soem devices better
+
 ### v0.5.6 (04.04.2017)
 * Windows do not support pause and resume on SerialPort
 
