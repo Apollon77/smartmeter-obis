@@ -33,6 +33,8 @@ describe('Test ObisMeasurement', function() {
 
         expect(new ObisMeasurement('F').idToString()).to.be.equal('97');
 
+        expect(new ObisMeasurement('1-1:F.F').idToString()).to.be.equal('1-1:97.97');
+
         expect(new ObisMeasurement(new Buffer('8181C78227FF', 'hex')).idToString()).to.be.equal('129-129:199.130.39*255');
 
         expect(function() {new ObisMeasurement(new Buffer('8181C78227', 'hex'));}).to.throw(Error,/Invalid Buffer length/);
