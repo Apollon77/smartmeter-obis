@@ -117,6 +117,7 @@ The process
 * Elster AS1440
 * Iskraemeco MT174
 * Itron EM214 Typ 720
+* Dutch smart-meters (use Serial-Read-only with correct baudrate according to your smart meter if needed and "D0" as protocol)
 
 Please send me an info on devices where you have used the library successfully and I will add it here.
 
@@ -125,6 +126,9 @@ Please send me an info on devices where you have used the library successfully a
 * finalize tests in ObisNames (german/english) and remove mixtures
 
 ## Changelog
+
+### v0.5.11 (21.06.2017)
+* Optimize D0 protocol handling and support dutch DSRM protocol
 
 ### v0.5.7 (08.05.2017)
 * Handle special problem cases with soem devices better

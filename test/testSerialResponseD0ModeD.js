@@ -14,7 +14,7 @@ describe('test SerialResponseTransport with D0 Mode D', function() {
 
         var options = {
             'protocol': 'D0Protocol',
-            'transport': 'SerialRequestResponseTransport',
+            'transport': 'SerialResponseTransport',
             'transportSerialPort': '/dev/ir-usb1',
             'transportSerialBaudrate': 2400,
             'protocolD0WakeupCharacters': 40,
