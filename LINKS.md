@@ -34,3 +34,9 @@
 ## Volkszähler-Infos:
 * http://forum.iobroker.net/viewtopic.php?p=42045#p42045
 * http://www.rudiswiki.de/wiki9/VolkszaehlerEMHeHZ
+
+## DSMR (Dutch Smart Meter)
+* http://files.domoticaforum.eu/uploads/Smartmetering/DSMR%20v4.0%20final%20P1.pdf
+* https://www.npmjs.com/package/p1-reader
+* https://github.com/matthijskooijman/arduino-dsmr/blob/master/README.md
+* https://github.com/robertklep/node-dsmr-parser/blob/master/README.md
