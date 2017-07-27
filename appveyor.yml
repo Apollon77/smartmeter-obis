@@ -11,7 +11,6 @@ clone_folder: 'c:\projects\%APPVEYOR_PROJECT_NAME%'
 install:
   - ps: 'Install-Product node $env:nodejs_version $env:platform'
   - npm install
-  - cp test/patch-virtual-serialport/index.js node_modules/virtual-serialport/index.js
 test_script:
   - echo %cd%
   - node --version

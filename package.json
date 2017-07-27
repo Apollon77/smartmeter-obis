@@ -19,7 +19,7 @@
     "request": "^2.79.0"
   },
   "devDependencies": {
-    "virtual-serialport": "^0.3.3",
+    "virtual-serialport": "^4.0.0",
     "mocha": "^3.2.0",
     "chai": "^3.4.1",
     "istanbul": "*",
