@@ -20,7 +20,7 @@ describe('test SerialResponseTransport Timeout with SmlProtocol', function() {
             'transportHttpRequestUrl': '',
             'obisNameLanguage': 'en',
             'transportSerialMessageTimeout': 10000,
-            'debug': 0
+            'debug': 2
         };
 
         var counter = 0;
@@ -34,7 +34,7 @@ describe('test SerialResponseTransport Timeout with SmlProtocol', function() {
 
         var smTransport = SmartmeterObis.init(options, testStoreData);
 
-        var errorHandled = false;
+        /*var errorHandled = false;
         var originalException = process.listeners('uncaughtException').pop();
         if (originalException) process.removeListener('uncaughtException', originalException);
         process.once("uncaughtException", function (err) {
@@ -46,7 +46,23 @@ describe('test SerialResponseTransport Timeout with SmlProtocol', function() {
 
             smTransport.stop();
             setTimeout(done, 1000);
-        });
+        });*/
+        setTimeout(function() {
+            expect(counter).to.be.equal(0);
+            expect(smTransport.serialConnected).to.be.false;
+            expect(smTransport.serialComm).to.be.null;
+            setTimeout(function() {
+                expect(smTransport.serialConnected).to.be.true;
+                expect(smTransport.serialComm).not.to.be.null;
+                setTimeout(function() {
+                    expect(counter).to.be.equal(0);
+                    expect(smTransport.serialConnected).to.be.false;
+                    expect(smTransport.serialComm).to.be.null;
+                    smTransport.stop();
+                    setTimeout(done, 1000);
+                }, 12000);
+            }, 9000);
+        }, 12000);
 
         smTransport.process();
 

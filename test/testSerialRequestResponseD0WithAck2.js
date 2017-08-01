@@ -3,7 +3,7 @@ var chai = require('chai');
 var expect = chai.expect;
 var mock = require('mock-require');
 
-describe('test SerialRequestResponseTransport with D0Protocol With Ack', function() {
+describe('test SerialRequestResponseTransport with D0Protocol With Ack2', function() {
 
 
     it('check output of two D0 messages', function(done){

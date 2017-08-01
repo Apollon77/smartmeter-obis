@@ -127,6 +127,9 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
+### v0.6.0 (01.08.2017)
+* A serial timeout will no longer trigger an Exception. Instead connection is reset and next cycle is scheduled as configured
+
 ### v0.5.12 (23.07.2017)
 * Use newest version of SML Library
 
