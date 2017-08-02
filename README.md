@@ -48,9 +48,9 @@ var options = {
 function displayData(err, obisResult) {
     if (err) {
         // handle error
-        // return true if you want to have the next cycle scheduled as configured
-        // return false if you want to stop the process here
-        return true;
+        // if you want to cancel the processing because of this error call smTransport.stop() before returning
+        // else processing continues
+        return;
     }
     for (var obisId in obisResult) {
         console.log(

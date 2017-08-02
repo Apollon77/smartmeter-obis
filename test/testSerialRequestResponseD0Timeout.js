@@ -41,7 +41,6 @@ describe('test SerialRequestResponseTransport Timeout with D0Protocol', function
                     console.log(obisResult[obisId].idToString() + ': ' + SmartmeterObis.ObisNames.resolveObisName(obisResult[obisId], options.obisNameLanguage).obisName + ' = ' + obisResult[obisId].valueToString());
                 }
             }
-            return true;
         }
 
         var smTransport = SmartmeterObis.init(options, testStoreData);

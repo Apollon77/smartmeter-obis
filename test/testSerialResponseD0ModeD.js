@@ -33,7 +33,7 @@ describe('test SerialResponseTransport with D0 Mode D', function() {
                 expect(obisResult).to.be.null;
                 errCounter++;
                 console.log('ERROR: ' + err);
-                return true;
+                return;
             }
             // nothing to do in this case because protocol is stateless
             expect(obisResult).to.be.an('object');

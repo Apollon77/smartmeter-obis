@@ -33,7 +33,7 @@ describe('test HttpRequestTransport with D0Protocol', function() {
                 errCounter++;
                 console.log('ERROR: ' + err);
                 expect(obisResult).to.be.null;
-                return true;
+                return;
             }
             // nothing to do in this case because protocol is stateless
             expect(obisResult).to.be.an('object');
