@@ -43,7 +43,13 @@ var options = {
     'obisFallbackMedium': 6
 };
 
-function displayData(obisResult) {
+function displayData(err, obisResult) {
+    if (err) {
+        // handle error
+        // return true if you want to have the next cycle scheduled as configured
+        // return false if you want to stop the process here
+        return true;
+    }
     for (var obisId in obisResult) {
         console.log(
             obisResult[obisId].idToString() + ': ' +
@@ -65,7 +71,7 @@ setTimeout(smTransport.stop, 60000);
 ## Usage informations
 The easiest way to use the library is to use the options Object with all data to set the Library configure and initialize by it's own.
 
-Therefor you use the **init(options, storeCallback)** method and provide an options Object and a callback function. The callback function is called with the parsed result as soon as a message is received completely and successfully. The callback function will get an Array of "ObisMeasurement" objects while each entry contains all data for one datapoint.
+Therefor you use the **init(options, storeCallback)** method and provide an options Object and a callback function. The callback function is called with an error object and the parsed result as soon as a message is received completely and successfully. The callback function will get an Array of "ObisMeasurement" objects on suvccess while each entry contains all data for one datapoint. In error case you get an error object in the first parameter and can control if a new cycle should be started (return true) or if you want to stop processing (return false).
 The **init(options, storeCallback)** returns the initialized Transport instance to use to control the dataflow.
 
 Everything else to do is to call the **process()** method from the returned Transport instance and the whole magic happends in the background. The called method can throw an Error as soon as invalid messages are received.

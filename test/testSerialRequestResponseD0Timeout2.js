@@ -41,7 +41,7 @@ describe('test SerialRequestResponseTransport Timeout with D0Protocol', function
                     console.log(obisResult[obisId].idToString() + ': ' + SmartmeterObis.ObisNames.resolveObisName(obisResult[obisId], options.obisNameLanguage).obisName + ' = ' + obisResult[obisId].valueToString());
                 }
             }
-            return true;
+            return false;
         }
 
         var smTransport = SmartmeterObis.init(options, testStoreData);
@@ -63,11 +63,11 @@ describe('test SerialRequestResponseTransport Timeout with D0Protocol', function
             expect(smTransport.serialConnected).to.be.false;
             expect(smTransport.serialComm).to.be.null;
             setTimeout(function() {
-                expect(smTransport.serialConnected).to.be.true;
-                expect(smTransport.serialComm).not.to.be.null;
+                expect(smTransport.serialConnected).to.be.false;
+                expect(smTransport.serialComm).to.be.null;
                 setTimeout(function() {
                     expect(counter).to.be.equal(0);
-                    expect(errCounter).to.be.equal(2);
+                    expect(errCounter).to.be.equal(1);
                     expect(smTransport.serialConnected).to.be.false;
                     expect(smTransport.serialComm).to.be.null;
                     smTransport.stop();
