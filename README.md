@@ -13,6 +13,8 @@ Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Apollon
 
 [![NPM](https://nodei.co/npm/smartmeter-obis.png?downloads=true)](https://nodei.co/npm/smartmeter-obis/)
 
+***This library supports nodejs 4.x, 6.x and 8.x because of limitations of the node-serialport library, nodejs 4.x on Win32 is also NOT supported.***
+
 This library supports the reading and parsing of smartmeter protocols that follow the OBIS number logic to make their data available.
 
 Supported Protocols:
