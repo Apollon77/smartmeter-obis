@@ -19,7 +19,8 @@ describe('test SerialResponseTransport with SMLProtocol', function() {
             'transportSerialBaudrate': 9600,
             'requestInterval': 10,
             'transportHttpRequestUrl': '',
-            'obisNameLanguage': 'en'
+            'obisNameLanguage': 'en',
+            'debug': 2
         };
 
         var lastObisResult;

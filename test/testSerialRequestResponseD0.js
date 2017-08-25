@@ -22,7 +22,8 @@ describe('test SerialRequestResponseTransport with D0Protocol', function() {
             'requestInterval': 10,
             'transportHttpRequestUrl': '',
             'obisNameLanguage': 'en',
-            'obisFallbackMedium': 6
+            'obisFallbackMedium': 6,
+            'debug': 2
         };
 
         var lastObisResult;

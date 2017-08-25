@@ -135,6 +135,9 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
+### v1.0.0 (2x.08.2017)
+* change callback to new error-first style and replace most thrown errors by a call to the callback method with error object and fix some timing issues
+
 ### v0.6.0 (01.08.2017)
 * A serial timeout will no longer trigger an Exception. Instead connection is reset and next cycle is scheduled as configured
 
