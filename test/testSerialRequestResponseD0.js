@@ -22,13 +22,21 @@ describe('test SerialRequestResponseTransport with D0Protocol', function() {
             'requestInterval': 10,
             'transportHttpRequestUrl': '',
             'obisNameLanguage': 'en',
-            'obisFallbackMedium': 6
+            'obisFallbackMedium': 6,
+            'debug': 2
         };
 
         var lastObisResult;
         var counter = 0;
+        var errCounter = 0;
 
-        function testStoreData(obisResult) {
+        function testStoreData(err, obisResult) {
+            if (err) {
+                expect(obisResult).to.be.null;
+                errCounter++;
+                console.log('ERROR: ' + err);
+                return;
+            }
             // nothing to do in this case because protocol is stateless
             expect(obisResult).to.be.an('object');
             expect(obisResult['6-0:9.20']).to.be.an('object');
@@ -42,7 +50,7 @@ describe('test SerialRequestResponseTransport with D0Protocol', function() {
             expect(obisResult['6-0:6.8'].values[0].unit).to.be.equal('MWh');
             expect(obisResult['6-0:6.8'].values[0].unit).to.be.equal('MWh');
             expect(Object.keys(obisResult).length).to.be.equal(50);
-            
+
             if (!lastObisResult) {
                 expect(counter).to.be.equal(0);
             }
@@ -82,6 +90,7 @@ describe('test SerialRequestResponseTransport with D0Protocol', function() {
                         endTimer = setTimeout(function() {
                             smTransport.stop();
                             expect(counter).to.be.equal(2);
+                            expect(errCounter).to.be.equal(0);
                             expect(smTransport.protocol.deviceManufacturer).to.be.equal('SIE');
                             expect(smTransport.protocol.commBaudrateChangeover).to.be.equal(2400);
                             expect(smTransport.serialConnected).to.be.false;

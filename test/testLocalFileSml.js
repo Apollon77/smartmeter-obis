@@ -28,8 +28,15 @@ describe('test LocalFileTransport with SMLProtocol', function() {
 
         var lastObisResult;
         var counter = 0;
+        var errCounter = 0;
 
-        function testStoreData(obisResult) {
+        function testStoreData(err, obisResult) {
+            if (err) {
+                expect(obisResult).to.be.null;
+                errCounter++;
+                console.log('ERROR: ' + err);
+                return;
+            }
             // nothing to do in this case because protocol is stateless
             expect(obisResult).to.be.an('object');
             expect(obisResult['129-129:199.130.3*255']).to.be.an('object');
@@ -66,6 +73,7 @@ describe('test LocalFileTransport with SMLProtocol', function() {
         setTimeout(function() {
             smTransport.stop();
             expect(counter).to.be.equal(2);
+            expect(errCounter).to.be.equal(0);
             fs.unlinkSync(options.transportLocalFilePath);
             done();
         }, 13000);

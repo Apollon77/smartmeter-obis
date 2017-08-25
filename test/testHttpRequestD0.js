@@ -26,8 +26,15 @@ describe('test HttpRequestTransport with D0Protocol', function() {
 
         var lastObisResult;
         var counter = 0;
+        var errCounter = 0;
 
-        function testStoreData(obisResult) {
+        function testStoreData(err, obisResult) {
+            if (err) {
+                errCounter++;
+                console.log('ERROR: ' + err);
+                expect(obisResult).to.be.null;
+                return;
+            }
             // nothing to do in this case because protocol is stateless
             expect(obisResult).to.be.an('object');
             expect(obisResult['6-0:9.20']).to.be.an('object');
@@ -69,6 +76,7 @@ describe('test HttpRequestTransport with D0Protocol', function() {
         setTimeout(function() {
             smTransport.stop();
             expect(counter).to.be.equal(2);
+            expect(errCounter).to.be.equal(0);
             done();
         }, 12000);
     });

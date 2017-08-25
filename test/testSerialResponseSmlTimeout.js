@@ -24,11 +24,19 @@ describe('test SerialResponseTransport Timeout with SmlProtocol', function() {
         };
 
         var counter = 0;
-        function testStoreData(obisResult) {
-            console.log('Received data ' + counter + ': ' + Object.keys(obisResult));
-            counter++;
-            for (var obisId in obisResult) {
-                console.log(obisResult[obisId].idToString() + ': ' + SmartmeterObis.ObisNames.resolveObisName(obisResult[obisId], options.obisNameLanguage).obisName + ' = ' + obisResult[obisId].valueToString());
+        var errCounter = 0;
+        function testStoreData(err, obisResult) {
+            if (err) {
+                expect(obisResult).to.be.null;
+                errCounter++;
+                console.log('ERROR: ' + err);
+            }
+            else {
+                console.log('Received data ' + counter + ': ' + Object.keys(obisResult));
+                counter++;
+                for (var obisId in obisResult) {
+                    console.log(obisResult[obisId].idToString() + ': ' + SmartmeterObis.ObisNames.resolveObisName(obisResult[obisId], options.obisNameLanguage).obisName + ' = ' + obisResult[obisId].valueToString());
+                }
             }
         }
 
@@ -49,6 +57,7 @@ describe('test SerialResponseTransport Timeout with SmlProtocol', function() {
         });*/
         setTimeout(function() {
             expect(counter).to.be.equal(0);
+            expect(errCounter).to.be.equal(1);
             expect(smTransport.serialConnected).to.be.false;
             expect(smTransport.serialComm).to.be.null;
             setTimeout(function() {
@@ -56,6 +65,7 @@ describe('test SerialResponseTransport Timeout with SmlProtocol', function() {
                 expect(smTransport.serialComm).not.to.be.null;
                 setTimeout(function() {
                     expect(counter).to.be.equal(0);
+                    expect(errCounter).to.be.equal(2);
                     expect(smTransport.serialConnected).to.be.false;
                     expect(smTransport.serialComm).to.be.null;
                     smTransport.stop();

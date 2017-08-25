@@ -27,8 +27,15 @@ describe('test SerialRequestResponseTransport with D0Protocol with Mode D', func
 
         var lastObisResult;
         var counter = 0;
+        var errCounter = 0;
 
-        function testStoreData(obisResult) {
+        function testStoreData(err, obisResult) {
+            if (err) {
+                expect(obisResult).to.be.null;
+                errCounter++;
+                console.log('ERROR: ' + err);
+                return;
+            }
             // nothing to do in this case because protocol is stateless
             expect(obisResult).to.be.an('object');
             expect(obisResult['1-0:97.97']).to.be.an('object');
@@ -81,6 +88,7 @@ describe('test SerialRequestResponseTransport with D0Protocol with Mode D', func
                     endTimer = setTimeout(function() {
                         smTransport.stop();
                         expect(counter).to.be.equal(2);
+                        expect(errCounter).to.be.equal(0);
                         expect(smTransport.protocol.deviceManufacturer).to.be.equal('ELS');
                         expect(smTransport.protocol.commMode).to.be.equal('E');
                         expect(smTransport.serialConnected).to.be.false;
