@@ -135,6 +135,9 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
+### v1.1.0 (xx.01.2018)
+* output some logging messages only in debug=2 mode
+
 ### v1.0.0 (2x.08.2017)
 * change callback to new error-first style and replace most thrown errors by a call to the callback method with error object and fix some timing issues
 
