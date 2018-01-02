@@ -7,6 +7,7 @@ var HttpRequestTransport = require('./lib/transports/HttpRequestTransport');
 var LocalFileTransport = require('./lib/transports/LocalFileTransport');
 var SerialRequestResponseTransport = require('./lib/transports/SerialRequestResponseTransport');
 var SerialResponseTransport = require('./lib/transports/SerialResponseTransport');
+var StdInTransport = require('./lib/transports/StdInTransport');
 
 var ObisMeasurement = require('./lib/ObisMeasurement');
 var ObisNames = require('./lib/ObisNames');
@@ -50,6 +51,9 @@ function init(options, writeDataCallback) {
             break;
         case 'SerialResponseTransport':
             smTransport = new SerialResponseTransport(options, smProtocol);
+            break;
+        case 'StdInTransport':
+            smTransport = new StdInTransport(options, smProtocol);
             break;
         default:
             throw Error('Unsupported Transport ' + options.transport);

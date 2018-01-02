@@ -101,6 +101,8 @@ The process
 | [transportHttpRequestUrl] | <code>string</code> | required for **HttpRequestTransport**, Request URL to query data from |
 | [transportHttpRequestTimeout] | <code>number</code> | optional for **HttpRequestTransport**, Timeout in ms, defaut 2000 |
 | [transportLocalFilePath] | <code>string</code> | required for **LocalFileTransport**, File patch to read data from |
+| [transportStdInMaxBufferSize] | <code>number</code> | optional, default value is 300000 (means after 300000 bytes without a matching message an Error is thrown ) |
+| [transportStdInMessageTimeout] | <code>number</code> | ms, optional, default value is 120000 (means after 120000ms without a matching message or new data an Error is thrown ) |
 | **Protocol specific options** |
 | [protocolD0WakeupCharacters] | <code>number</code> | optional for **D0Protocol**, number of wakeup NULL characters, default 0 |
 | [protocolD0DeviceAddress] | <code>string</code> | optional for **D0Protocol**, device address (max 32 characters) for SignIn-Message, default empty |
@@ -138,6 +140,8 @@ Please send me an info on devices where you have used the library successfully a
 
 ### v1.1.0 (xx.01.2018)
 * output some logging messages only in debug=2 mode
+* add StdInTransport options
+* add option to send multiple SignOn messages with D0Protocol and SerialRequestResponseTransport
 
 ### v1.0.0 (2x.08.2017)
 * change callback to new error-first style and replace most thrown errors by a call to the callback method with error object and fix some timing issues

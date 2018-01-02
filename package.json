@@ -1,6 +1,6 @@
 {
   "name": "smartmeter-obis",
-  "version": "1.1.0-alpha4",
+  "version": "1.1.0-alpha5",
   "description": "This library supports the reading and parsing of smartmeter protocols that follow the OBIS number logic to make their data available.",
   "author": "Ingo Fischer <ingo@fischer-ka.de>",
   "contributors": [],
@@ -25,8 +25,9 @@
     "istanbul": "*",
     "sinon": "^4.1.1",
     "nock": "^9.0.2",
-    "mock-require": "^2.0.1"
-},
+    "mock-require": "^2.0.1",
+    "mock-stdin": "^0.3.1"
+  },
   "bugs": {
     "url": "https://github.com/Apollon77/smartmeter-obis/issues"
   },
