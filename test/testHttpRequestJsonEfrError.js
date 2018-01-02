@@ -38,18 +38,18 @@ describe('test HttpRequestTransport with JsonEfrProtocol with Error', function()
             expect(obisResult).to.be.an('object');
 /*            if (counter === 0) {
                 expect(obisResult['129-129:199.130.39*255']).to.be.an('object');
-                expect(obisResult['129-129:199.130.39*255'].rawValue).to.be.empty;
+                expect(obisResult['129-129:199.130.39*255'].rawValue).to.be.undefined;
                 expect(obisResult['129-129:199.130.39*255'].values.length).to.be.equal(1);
                 expect(obisResult['129-129:199.130.39*255'].values[0].value).to.be.equal('0815');
                 expect(obisResult['1-1:1.8.1*255']).to.be.an('object');
-                expect(obisResult['1-1:1.8.1*255'].rawValue).to.be.empty;
+                expect(obisResult['1-1:1.8.1*255'].rawValue).to.be.undefined;
                 expect(obisResult['1-1:1.8.1*255'].values.length).to.be.equal(1);
                 expect(obisResult['1-1:1.8.1*255'].values[0].value).to.be.equal(255.16);
                 expect(obisResult['1-1:1.8.1*255'].values[0].unit).to.be.equal('kWh');
             }
             else if (counter === 1) {*/
                 expect(obisResult['1-0:2.8.0*128']).to.be.an('object');
-                expect(obisResult['1-0:2.8.0*128'].rawValue).to.be.empty;
+                expect(obisResult['1-0:2.8.0*128'].rawValue).to.be.undefined;
                 expect(obisResult['1-0:2.8.0*128'].values.length).to.be.equal(1);
                 expect(obisResult['1-0:2.8.0*128'].values[0].value).to.be.equal(2.66);
                 expect(obisResult['1-0:2.8.0*128'].values[0].unit).to.be.equal('kWh');

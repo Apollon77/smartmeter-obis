@@ -36,11 +36,11 @@ describe('test SerialResponseTransport with SMLProtocol', function() {
             // nothing to do in this case because protocol is stateless
             expect(obisResult).to.be.an('object');
             expect(obisResult['129-129:199.130.3*255']).to.be.an('object');
-            expect(obisResult['129-129:199.130.3*255'].rawValue).to.be.empty;
+            expect(obisResult['129-129:199.130.3*255'].rawValue).to.be.undefined;
             expect(obisResult['129-129:199.130.3*255'].values.length).to.be.equal(1);
             expect(obisResult['129-129:199.130.3*255'].values[0].value).to.be.equal('EMH');
             expect(obisResult['1-0:1.8.1*255']).to.be.an('object');
-            expect(obisResult['1-0:1.8.1*255'].rawValue).to.be.empty;
+            expect(obisResult['1-0:1.8.1*255'].rawValue).to.be.undefined;
             expect(obisResult['1-0:1.8.1*255'].values.length).to.be.equal(1);
             expect(obisResult['1-0:1.8.1*255'].values[0].value).to.be.equal(15338.5557);
             expect(obisResult['1-0:1.8.1*255'].values[0].unit).to.be.equal('kWh');
