@@ -142,6 +142,7 @@ Please send me an info on devices where you have used the library successfully a
 * output some logging messages only in debug=2 mode
 * add StdInTransport options
 * add option to send multiple SignOn messages with D0Protocol and SerialRequestResponseTransport
+* also accept "&" in OBIS IDs instead of "*" that are sended by EMH ITZ sometimes
 
 ### v1.0.0 (2x.08.2017)
 * change callback to new error-first style and replace most thrown errors by a call to the callback method with error object and fix some timing issues

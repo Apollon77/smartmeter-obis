@@ -17,6 +17,8 @@ describe('Test ObisMeasurement', function() {
 
         expect(new ObisMeasurement('1.8.1*255').idToString()).to.be.equal('1.8.1*255');
 
+        expect(new ObisMeasurement('1.8.1&255').idToString()).to.be.equal('1.8.1*255');
+
         expect(new ObisMeasurement('6.8*01').idToString()).to.be.equal('6.8*1');
 
         expect(new ObisMeasurement('1-0:1.8.1*255').idToString()).to.be.equal('1-0:1.8.1*255');
