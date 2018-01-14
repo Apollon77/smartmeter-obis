@@ -1,3 +1,9 @@
+/* jshint -W097 */
+// jshint strict:true
+/*jslint node: true */
+/*jslint esversion: 6 */
+'use strict';
+
 var D0Protocol = require('./lib/protocols/D0Protocol');
 var JsonEfrProtocol = require('./lib/protocols/JsonEfrProtocol');
 var SmlProtocol = require('./lib/protocols/SmlProtocol');
