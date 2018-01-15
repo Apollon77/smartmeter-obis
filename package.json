@@ -25,7 +25,7 @@
     "istanbul": "*",
     "sinon": "^4.1.1",
     "nock": "^9.0.2",
-    "mock-require": "^2.0.1",
+    "mock-require": "^3.0.1",
     "mock-stdin": "^0.3.1"
   },
   "bugs": {
