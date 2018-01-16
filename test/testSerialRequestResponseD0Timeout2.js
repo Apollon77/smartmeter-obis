@@ -62,14 +62,17 @@ describe('test SerialRequestResponseTransport Timeout with D0Protocol', function
             expect(errCounter).to.be.equal(1);
             expect(smTransport.serialConnected).to.be.false;
             expect(smTransport.serialComm).to.be.null;
+            expect(smTransport.stopRequests).to.be.true;
             setTimeout(function() {
                 expect(smTransport.serialConnected).to.be.false;
                 expect(smTransport.serialComm).to.be.null;
+                expect(smTransport.stopRequests).to.be.true;
                 setTimeout(function() {
                     expect(counter).to.be.equal(0);
                     expect(errCounter).to.be.equal(1);
                     expect(smTransport.serialConnected).to.be.false;
                     expect(smTransport.serialComm).to.be.null;
+                    expect(smTransport.stopRequests).to.be.true;
                     smTransport.stop();
                     setTimeout(done, 1000);
                 }, 12000);

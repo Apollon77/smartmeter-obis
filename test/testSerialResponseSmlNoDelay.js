@@ -74,6 +74,7 @@ describe('test SerialResponseTransport with SMLProtocol', function() {
 
         setTimeout(function() {
             clearInterval(sendInterval);
+            expect(smTransport.stopRequests).to.be.false;
             smTransport.stop();
             setTimeout(function() {
                 expect(counter).to.be.equal(2);

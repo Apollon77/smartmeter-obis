@@ -86,6 +86,7 @@ describe('test SerialResponseTransport with D0 Mode D', function() {
                         smTransport.serialComm.writeToComputer(testData);
 
                         setTimeout(function() {
+                            expect(smTransport.stopRequests).to.be.false;
                             smTransport.stop();
                             expect(counter).to.be.equal(2);
                             expect(errCounter).to.be.equal(0);

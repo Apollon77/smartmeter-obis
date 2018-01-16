@@ -71,6 +71,7 @@ describe('test StdInTransport with SMLProtocol', function() {
             stdinMock.send(null);
 
             setTimeout(function() {
+                expect(smTransport.stopRequests).to.be.true;
                 smTransport.stop();
                 expect(counter).to.be.equal(1);
                 expect(errCounter).to.be.equal(0);

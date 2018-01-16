@@ -140,9 +140,12 @@ Please send me an info on devices where you have used the library successfully a
 
 ### v1.1.0 (xx.01.2018)
 * output some logging messages only in debug=2 mode
-* add StdInTransport options
+* add StdInTransport options to also allow to process node "Stdin" streams
 * add option to send multiple SignOn messages with D0Protocol and SerialRequestResponseTransport
-* also accept "&" in OBIS IDs instead of "*" that are sended by EMH ITZ sometimes
+* also accept "&" in OBIS IDs instead of "*" that is sent by EMH ITZ sometimes
+* add some better Error handling for D0 messages and ignore pot. "trash" content before dataflow
+* switch to Serialport 6.0.4 to make everything more stable and fix needed things in code for This
+* a requestInterval of -1 will end processing after one message in all Transports
 
 ### v1.0.0 (2x.08.2017)
 * change callback to new error-first style and replace most thrown errors by a call to the callback method with error object and fix some timing issues

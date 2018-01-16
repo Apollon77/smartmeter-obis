@@ -76,6 +76,7 @@ describe('test LocalFileTransport with SMLProtocol', function() {
         smTransport.process();
 
         setTimeout(function() {
+            expect(smTransport.stopRequests).to.be.false;
             smTransport.stop();
             expect(counter).to.be.equal(1);
             expect(errCounter).to.be.equal(1);

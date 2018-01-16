@@ -1,24 +1,21 @@
 /*jshint expr: true*/
 var chai = require('chai');
 var expect = chai.expect;
-var mock = require('mock-require');
+var mock = require('mock-stdin');
 
-describe('test SerialResponseTransport with SMLProtocol', function() {
+describe('test StdInTransport with SMLProtocol', function() {
 
     it('check output of two SML messages', function(done){
         this.timeout(600000); // because of first install from npm
 
-        mock('serialport', 'virtual-serialport');
+        var stdinMock = mock.stdin();
 
         var SmartmeterObis = require('../index.js');
 
         var options = {
             'protocol': 'SmlProtocol',
-            'transport': 'SerialResponseTransport',
-            'transportSerialPort': '/dev/ir-usb0',
-            'transportSerialBaudrate': 9600,
-            'requestInterval': 10,
-            'transportHttpRequestUrl': '',
+            'transport': 'StdInTransport',
+            'requestInterval': -1,
             'obisNameLanguage': 'en',
             'debug': 2
         };
@@ -68,22 +65,17 @@ describe('test SerialResponseTransport with SMLProtocol', function() {
         smTransport.process();
 
         setTimeout(function() {
-            var testData = new Buffer('1b1b1b1b01010101760700190b4cbead6200620072630101760101070019063f3f8f0b0901454d48000041f045010163662d00760700190b4cbeae620062007263070177010b0901454d48000041f045070100620affff72620165063f2f357777078181c78203ff0101010104454d480177070100000009ff010101010b0901454d48000041f0450177070100010800ff6400018201621e52ff560009247a550177070100010801ff0101621e52ff560009247a550177070100010802ff0101621e52ff5600000000000177070100100700ff0101621b52ff55000016030177078181c78205ff0172620165063f2f3501018302e77ef33ea97bb6bba9bfa4fbd8b9f2ede51207cf6b98a237c21ca4982ee3ce18efe8438f1deba9d5c40eb68ae8f201010163574a00760700190b4cbeb16200620072630201710163d658000000001b1b1b1b1a03e566', 'hex');
-            smTransport.serialComm.writeToComputer(testData);
+            var testData = new Buffer('1b1b1b1b01010101760700190b4cbead6200620072630101760101070019063f3f8f0b0901454d48000041f045010163662d00760700190b4cbeae620062007263070177010b0901454d48000041f045070100620affff72620165063f2f357777078181c78203ff0101010104454d480177070100000009ff010101010b0901454d48000041f0450177070100010800ff6400018201621e52ff560009247a550177070100010801ff0101621e52ff560009247a550177070100010802ff0101621e52ff5600000000000177070100100700ff0101621b52ff55000016030177078181c78205ff0172620165063f2f3501018302e77ef33ea97bb6bba9bfa4fbd8b9f2ede51207b15acf6b98a237c21ca4982ee3ce18efe8438f1deba9d5c40eb68ae8f201010163574a00760700190b4cbeb16200620072630201710163d658000000001b1b1b1b1a03e566', 'hex');
+            stdinMock.send(testData);
 
             setTimeout(function() {
-                var testData = new Buffer('1b1b1b1b01010101760700190b4cbead6200620072630101760101070019063f3f8f0b0901454d48000041f045010163662d00760700190b4cbeae620062007263070177010b0901454d48000041f045070100620affff72620165063f2f357777078181c78203ff0101010104454d480177070100000009ff010101010b0901454d48000041f0450177070100010800ff6400018201621e52ff560009247a550177070100010801ff0101621e52ff560009247a550177070100010802ff0101621e52ff5600000000000177070100100700ff0101621b52ff55000016030177078181c78205ff0172620165063f2f3501018302e77ef33ea97bb6bba9bfa4fbd8b9f2ede51207b15acf6b98a237c21ca4982ee3ce18efe8438f1deba9d5c40eb68ae8f201010163574a00760700190b4cbeb16200620072630201710163d658000000001b1b1b1b1a03e566', 'hex');
-                smTransport.serialComm.writeToComputer(testData);
-
-                setTimeout(function() {
-                    expect(smTransport.stopRequests).to.be.false;
-                    smTransport.stop();
-                    expect(counter).to.be.equal(1);
-                    expect(errCounter).to.be.equal(1);
-                    expect(smTransport.serialConnected).to.be.false;
-                    setTimeout(done, 1000);
-                }, 3000);
-            }, 15000);
-        }, 5000);
+                expect(smTransport.stopRequests).to.be.true;
+                smTransport.stop();
+                expect(counter).to.be.equal(1);
+                expect(errCounter).to.be.equal(0);
+                stdinMock.restore();
+                setTimeout(done, 1000);
+            }, 1000);
+        }, 2000);
     });
 });

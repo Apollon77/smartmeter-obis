@@ -17,11 +17,11 @@ describe('test HttpRequestTransport with D0Protocol', function() {
             'transport': 'HttpRequestTransport',
             'transportSerialPort': '',
             'transportSerialBaudrate': 0,
-            'requestInterval': 10,
+            'requestInterval': -1,
             'transportHttpRequestUrl': 'http://test.efr-server.com/d0',
             'obisNameLanguage': 'en',
             'obisFallbackMedium': 6,
-            'debug': 0
+            'debug': 2
         };
 
         var lastObisResult;
@@ -74,11 +74,11 @@ describe('test HttpRequestTransport with D0Protocol', function() {
         smTransport.process();
 
         setTimeout(function() {
-            expect(smTransport.stopRequests).to.be.false;
+            expect(smTransport.stopRequests).to.be.true;
             smTransport.stop();
-            expect(counter).to.be.equal(2);
+            expect(counter).to.be.equal(1);
             expect(errCounter).to.be.equal(0);
             done();
-        }, 12000);
+        }, 2000);
     });
 });

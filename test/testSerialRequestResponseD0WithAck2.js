@@ -84,6 +84,7 @@ describe('test SerialRequestResponseTransport with D0Protocol With Ack2', functi
 
                 if (!endTimer) {
                     endTimer = setTimeout(function() {
+                        expect(smTransport.stopRequests).to.be.false;
                         smTransport.stop();
                         expect(counter).to.be.equal(2);
                         expect(errCounter).to.be.equal(0);
