@@ -146,6 +146,7 @@ Please send me an info on devices where you have used the library successfully a
 * add some better Error handling for D0 messages and ignore pot. "trash" content before dataflow
 * switch to Serialport 6.0.4 to make everything more stable and fix needed things in code for This
 * a requestInterval of -1 will end processing after one message in all Transports
+* SerialResponseTransport and StdInTransport will process all data which is available before readming new. Buffer needs to be big enough else Buffer-Overruns will be catched
 
 ### v1.0.0 (2x.08.2017)
 * change callback to new error-first style and replace most thrown errors by a call to the callback method with error object and fix some timing issues
