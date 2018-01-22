@@ -4,7 +4,7 @@ var expect = chai.expect;
 var mock = require('mock-require');
 mock('serialport', 'virtual-serialport');
 
-describe('test SerialRequestResponseTransport Timeout with D0Protocol', function() {
+describe('test SerialRequestResponseTransport Timeout2 with D0Protocol', function() {
 
     it('check timeout', function(done) {
         this.timeout(600000); // because of first install from npm
@@ -73,8 +73,9 @@ describe('test SerialRequestResponseTransport Timeout with D0Protocol', function
                     expect(smTransport.serialConnected).to.be.false;
                     expect(smTransport.serialComm).to.be.null;
                     expect(smTransport.stopRequests).to.be.true;
-                    smTransport.stop();
-                    setTimeout(done, 1000);
+                    smTransport.stop(function() {
+                        done();
+                    });
                 }, 12000);
             }, 9000);
         }, 12000);

@@ -83,13 +83,16 @@ describe('test SerialRequestResponseTransport with D0Protocol with Mode-Overwrit
                 if (!endTimer) {
                     endTimer = setTimeout(function() {
                         expect(smTransport.stopRequests).to.be.false;
-                        smTransport.stop();
-                        expect(counter).to.be.equal(2);
-                        expect(errCounter).to.be.equal(0);
-                        expect(smTransport.protocol.deviceManufacturer).to.be.equal('ITR');
-                        expect(smTransport.protocol.commMode).to.be.equal('A');
-                        expect(smTransport.serialConnected).to.be.false;
-                        setTimeout(done, 1000);
+                        smTransport.stop(function() {
+                            expect(counter).to.be.equal(2);
+                            expect(errCounter).to.be.equal(0);
+                            expect(smTransport.protocol.deviceManufacturer).to.be.equal('ITR');
+                            expect(smTransport.protocol.commMode).to.be.equal('A');
+                            setTimeout(function() {
+                                expect(smTransport.serialConnected).to.be.false;
+                                done();
+                            }, 100);
+                        });
                     }, 13000);
                 }
             }

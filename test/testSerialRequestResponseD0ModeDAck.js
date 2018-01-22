@@ -4,7 +4,7 @@ var expect = chai.expect;
 var mock = require('mock-require');
 mock('serialport', 'virtual-serialport');
 
-describe('test SerialRequestResponseTransport with D0Protocol with Mode D', function() {
+describe('test SerialRequestResponseTransport with D0Protocol with Mode D Ack', function() {
 
     it('check output of two D0 messages', function(done){
         this.timeout(600000); // because of first install from npm
@@ -87,13 +87,16 @@ describe('test SerialRequestResponseTransport with D0Protocol with Mode D', func
                 if (!endTimer) {
                     endTimer = setTimeout(function() {
                         expect(smTransport.stopRequests).to.be.false;
-                        smTransport.stop();
-                        expect(counter).to.be.equal(2);
-                        expect(errCounter).to.be.equal(0);
-                        expect(smTransport.protocol.deviceManufacturer).to.be.equal('ELS');
-                        expect(smTransport.protocol.commMode).to.be.equal('E');
-                        expect(smTransport.serialConnected).to.be.false;
-                        setTimeout(done, 1000);
+                        smTransport.stop(function() {
+                            expect(counter).to.be.equal(2);
+                            expect(errCounter).to.be.equal(0);
+                            expect(smTransport.protocol.deviceManufacturer).to.be.equal('ELS');
+                            expect(smTransport.protocol.commMode).to.be.equal('E');
+                            setTimeout(function() {
+                                expect(smTransport.serialConnected).to.be.false;
+                                done();
+                            }, 100);
+                        });
                     }, 13000);
                 }
             }

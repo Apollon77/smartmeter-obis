@@ -3,7 +3,7 @@ var chai = require('chai');
 var expect = chai.expect;
 var mock = require('mock-stdin');
 
-describe('test StdInTransport with SMLProtocol', function() {
+describe('test StdInTransport with SMLProtocol Only One', function() {
 
     it('check output of two SML messages', function(done){
         this.timeout(600000); // because of first install from npm
@@ -70,11 +70,12 @@ describe('test StdInTransport with SMLProtocol', function() {
 
             setTimeout(function() {
                 expect(smTransport.stopRequests).to.be.true;
-                smTransport.stop();
-                expect(counter).to.be.equal(1);
-                expect(errCounter).to.be.equal(0);
-                stdinMock.restore();
-                setTimeout(done, 1000);
+                smTransport.stop(function() {
+                    expect(counter).to.be.equal(1);
+                    expect(errCounter).to.be.equal(0);
+                    stdinMock.restore();
+                    done();
+                });
             }, 1000);
         }, 2000);
     });

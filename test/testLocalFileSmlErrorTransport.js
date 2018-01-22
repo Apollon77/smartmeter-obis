@@ -5,7 +5,7 @@ var expect = chai.expect;
 var mock = require('mock-require');
 mock('serialport', 'virtual-serialport');
 
-describe('test LocalFileTransport with SMLProtocol', function() {
+describe('test LocalFileTransport with SMLProtocol Error Transport', function() {
 
     it('check output of two SML messges', function(done){
         this.timeout(600000); // because of first install from npm
@@ -74,11 +74,12 @@ describe('test LocalFileTransport with SMLProtocol', function() {
 
         setTimeout(function() {
             expect(smTransport.stopRequests).to.be.false;
-            smTransport.stop();
-            expect(counter).to.be.equal(1);
-            expect(errCounter).to.be.equal(1);
-            if (fs.existsSync(options.transportLocalFilePath)) fs.unlinkSync(options.transportLocalFilePath);
-            done();
+            smTransport.stop(function() {
+                expect(counter).to.be.equal(1);
+                expect(errCounter).to.be.equal(1);
+                if (fs.existsSync(options.transportLocalFilePath)) fs.unlinkSync(options.transportLocalFilePath);
+                done();
+            });
         }, 13000);
     });
 });

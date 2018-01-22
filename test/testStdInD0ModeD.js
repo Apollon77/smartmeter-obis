@@ -85,13 +85,14 @@ describe('test StdInTransport with D0 Mode D', function() {
 
                         setTimeout(function() {
                             expect(smTransport.stopRequests).to.be.false;
-                            smTransport.stop();
-                            expect(counter).to.be.equal(2);
-                            expect(errCounter).to.be.equal(0);
-                            expect(smTransport.protocol.deviceManufacturer).to.be.equal('SIE');
-                            expect(smTransport.protocol.commBaudrateChangeover).to.be.equal(2400);
-                            stdinMock.restore();
-                            setTimeout(done, 1000);
+                            smTransport.stop(function() {
+                                expect(counter).to.be.equal(2);
+                                expect(errCounter).to.be.equal(0);
+                                expect(smTransport.protocol.deviceManufacturer).to.be.equal('SIE');
+                                expect(smTransport.protocol.commBaudrateChangeover).to.be.equal(2400);
+                                stdinMock.restore();
+                                done();
+                            });
                         }, 2000);
                     }, 500);
                 }, 11000);

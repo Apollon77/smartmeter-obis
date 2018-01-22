@@ -74,11 +74,12 @@ describe('test StdInTransport with SMLProtocol', function() {
 
                 setTimeout(function() {
                     expect(smTransport.stopRequests).to.be.false;
-                    smTransport.stop();
-                    expect(counter).to.be.equal(2);
-                    expect(errCounter).to.be.equal(0);
-                    stdinMock.restore();
-                    setTimeout(done, 1000);
+                    smTransport.stop(function() {
+                        expect(counter).to.be.equal(2);
+                        expect(errCounter).to.be.equal(0);
+                        stdinMock.restore();
+                        done();
+                    });
                 }, 3000);
             }, 15000);
         }, 5000);

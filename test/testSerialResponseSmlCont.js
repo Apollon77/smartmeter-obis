@@ -3,7 +3,7 @@ var chai = require('chai');
 var expect = chai.expect;
 var mock = require('mock-require');
 
-describe('test SerialResponseTransport with SMLProtocol', function() {
+describe('test SerialResponseTransport with SMLProtocol Cont.', function() {
 
     it('check output of two SML messages', function(done){
         this.timeout(600000); // because of first install from npm
@@ -85,14 +85,15 @@ describe('test SerialResponseTransport with SMLProtocol', function() {
 
                         setTimeout(function() {
                             expect(smTransport.stopRequests).to.be.false;
-                            smTransport.stop();
-                            expect(smTransport.stopRequests).to.be.true;
-                            expect(counter).to.be.equal(4);
-                            expect(errCounter).to.be.equal(0);
-                            setTimeout(function() {
-                                expect(smTransport.serialConnected).to.be.false;
-                                setTimeout(done, 1000);
-                            }, 1000);
+                            smTransport.stop(function() {
+                                expect(smTransport.stopRequests).to.be.true;
+                                expect(counter).to.be.equal(4);
+                                expect(errCounter).to.be.equal(0);
+                                setTimeout(function() {
+                                    expect(smTransport.serialConnected).to.be.false;
+                                    done();
+                                }, 100);
+                            });
                         }, 1000);
                     }, 100);
                 }, 100);

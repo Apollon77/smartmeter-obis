@@ -5,7 +5,7 @@ var nock = require('nock');
 var mock = require('mock-require');
 mock('serialport', 'virtual-serialport');
 
-describe('test HttpRequestTransport with D0Protocol', function() {
+describe('test HttpRequestTransport with D0Protocol Only One', function() {
 
     it('check output of two JSON messges', function(done){
         this.timeout(600000); // because of first install from npm
@@ -75,10 +75,11 @@ describe('test HttpRequestTransport with D0Protocol', function() {
 
         setTimeout(function() {
             expect(smTransport.stopRequests).to.be.true;
-            smTransport.stop();
-            expect(counter).to.be.equal(1);
-            expect(errCounter).to.be.equal(0);
-            done();
+            smTransport.stop(function() {
+                expect(counter).to.be.equal(1);
+                expect(errCounter).to.be.equal(0);
+                done();
+            });
         }, 2000);
     });
 });

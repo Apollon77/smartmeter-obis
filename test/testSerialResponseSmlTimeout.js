@@ -71,8 +71,9 @@ describe('test SerialResponseTransport Timeout with SmlProtocol', function() {
                     expect(smTransport.serialConnected).to.be.false;
                     expect(smTransport.serialComm).to.be.null;
                     expect(smTransport.stopRequests).to.be.false;
-                    smTransport.stop();
-                    setTimeout(done, 1000);
+                    smTransport.stop(function() {
+                        done();
+                    });
                 }, 12000);
             }, 9000);
         }, 12000);

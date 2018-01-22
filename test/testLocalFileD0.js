@@ -73,11 +73,12 @@ describe('test LocalFileTransport with D0Protocol', function() {
 
         setTimeout(function() {
             expect(smTransport.stopRequests).to.be.false;
-            smTransport.stop();
-            expect(counter).to.be.equal(2);
-            expect(errCounter).to.be.equal(0);
-            fs.unlinkSync(options.transportLocalFilePath);
-            done();
+            smTransport.stop(function() {
+                expect(counter).to.be.equal(2);
+                expect(errCounter).to.be.equal(0);
+                fs.unlinkSync(options.transportLocalFilePath);
+                done();
+            });
         }, 13000);
     });
 });
