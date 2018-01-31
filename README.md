@@ -138,7 +138,7 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
-### v1.1.0 (xx.01.2018)
+### v1.1.0 (31.01.2018)
 * output some logging messages only in debug=2 mode
 * add StdInTransport options to also allow to process node "Stdin" streams
 * add option to send multiple SignOn messages with D0Protocol and SerialRequestResponseTransport
