@@ -94,7 +94,7 @@ describe('test SerialRequestResponseTransport with D0Protocol', function() {
 
                     if (!endTimer) {
                         duration = Date.now() - startTime;
-                        duration = 20 * (duration + 2075);
+                        duration = 20 * (duration + 2100);
                         console.log('Duration: ' + duration);
                         endTimer = setTimeout(function() {
                             expect(smTransport.stopRequests).to.be.false;
