@@ -1,7 +1,6 @@
 # smartmeter-obis
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/Apollon77/smartmeter-obis.svg)](https://greenkeeper.io/)
-
 [![NPM version](http://img.shields.io/npm/v/smartmeter-obis.svg)](https://www.npmjs.com/package/smartmeter-obis)
 [![Downloads](https://img.shields.io/npm/dm/smartmeter-obis.svg)](https://www.npmjs.com/package/smartmeter-obis)
 [![Dependency Status](https://gemnasium.com/badges/github.com/Apollon77/smartmeter-obis.svg)](https://gemnasium.com/github.com/Apollon77/smartmeter-obis)
