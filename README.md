@@ -142,6 +142,9 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
+### v1.1.2 (26.03.2018)
+* Add better support for devices with more then 16 values (OpenSML Library upgrade)
+
 ### v1.1.0 (31.01.2018)
 * output some logging messages only in debug=2 mode
 * add StdInTransport options to also allow to process node "Stdin" streams
