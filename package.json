@@ -24,7 +24,7 @@
     "chai": "^4.1.2",
     "istanbul": "*",
     "sinon": "^6.0.1",
-    "nock": "^9.0.2",
+    "nock": "^10.0.0",
     "mock-require": "^3.0.1",
     "mock-stdin": "^0.3.1"
   },
