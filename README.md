@@ -141,6 +141,9 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
+### v1.1.3 (11.11.2018)
+* Small fix
+
 ### v1.1.2 (26.03.2018)
 * Add better support for devices with more then 16 values (OpenSML Library upgrade)
 
