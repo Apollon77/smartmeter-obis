@@ -23,7 +23,7 @@
     "mocha": "^5.2.0",
     "chai": "^4.2.0",
     "istanbul": "*",
-    "sinon": "^7.1.1",
+    "sinon": "^7.2.7",
     "nock": "^9.6.1",
     "mock-require": "^3.0.2",
     "mock-stdin": "^0.3.1"
