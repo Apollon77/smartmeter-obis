@@ -5,7 +5,7 @@
 * https://de.wikipedia.org/wiki/Smart_Message_Language
 * http://wiki.volkszaehler.org/software/sml
 * http://wiki.volkszaehler.org/software/sml#beispiel_3emh_ehz_fw8e2a50bak2
-* https://github.com/dailab/libsml
+* https://github.com/volkszaehler/libsml
 * https://github.com/volkszaehler/vzlogger/blob/master/src/protocols/MeterSML.cpp
 * Unit-Liste:
   * https://github.com/volkszaehler/vzlogger/blob/master/include/unit.h
