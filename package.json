@@ -26,7 +26,7 @@
     "sinon": "^7.2.7",
     "nock": "^11.3.2",
     "mock-require": "^3.0.3",
-    "mock-stdin": "^0.3.1"
+    "mock-stdin": "^1.0.0"
   },
   "bugs": {
     "url": "https://github.com/Apollon77/smartmeter-obis/issues"
