@@ -37,9 +37,9 @@ describe('Test ObisMeasurement', function() {
 
         expect(new ObisMeasurement('1-1:F.F').idToString()).to.be.equal('1-1:97.97');
 
-        expect(new ObisMeasurement(new Buffer('8181C78227FF', 'hex')).idToString()).to.be.equal('129-129:199.130.39*255');
+        expect(new ObisMeasurement(Buffer.from('8181C78227FF', 'hex')).idToString()).to.be.equal('129-129:199.130.39*255');
 
-        expect(function() {new ObisMeasurement(new Buffer('8181C78227', 'hex'));}).to.throw(Error,/Invalid Buffer length/);
+        expect(function() {new ObisMeasurement(Buffer.from('8181C78227', 'hex'));}).to.throw(Error,/Invalid Buffer length/);
 
         expect(new ObisMeasurement(1,0,1,8,1,255).idToString()).to.be.equal('1-0:1.8.1*255');
 
@@ -75,12 +75,12 @@ describe('Test ObisMeasurement', function() {
 
 
         obis = new ObisMeasurement('1.8.1*255');
-        obis.addValue(new Buffer('454d48', 'hex'), 255);
+        obis.addValue(Buffer.from('454d48', 'hex'), 255);
         expect(obis.valueToString()).to.be.equal('EMH');
 
 
         obis = new ObisMeasurement('1.8.1*255');
-        obis.addValue(new Buffer('0901454d48000041f045', 'hex'), 255);
+        obis.addValue(Buffer.from('0901454d48000041f045', 'hex'), 255);
         expect(obis.valueToString()).to.be.equal('0901454d48000041f045');
     });
 

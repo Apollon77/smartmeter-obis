@@ -7,24 +7,29 @@
   "homepage": "",
   "license": "MIT",
   "keywords": [
-    "smartmeter", "SML", "D0", "eHz", "OBIS", "EFR"
+    "smartmeter",
+    "SML",
+    "D0",
+    "eHz",
+    "OBIS",
+    "EFR"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/Apollon77/smartmeter-obis"
   },
   "dependencies": {
-    "open-sml": "^0.3.4",
+    "open-sml": "^1.0.0",
     "serialport": "^8.0.5",
     "request": "^2.88.0"
   },
   "devDependencies": {
     "virtual-serialport": "Apollon77/virtual-serialport",
-    "mocha": "^6.1.4",
+    "mocha": "^6.2.2",
     "chai": "^4.2.0",
-    "istanbul": "*",
-    "sinon": "^7.2.7",
-    "nock": "^11.3.2",
+    "nyc": "*",
+    "sinon": "^7.5.0",
+    "nock": "^11.7.0",
     "mock-require": "^3.0.3",
     "mock-stdin": "^1.0.0"
   },
@@ -33,6 +38,6 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "node node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec"
+    "test": "nyc --reporter=lcov node_modules/mocha/bin/mocha --exit"
   }
 }

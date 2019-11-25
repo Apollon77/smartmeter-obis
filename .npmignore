@@ -10,3 +10,7 @@ appveyor.yml
 .eslintrc
 .vscode
 coverage
+package-lock.json
+.github
+.nyc_output
+node_modules

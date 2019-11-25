@@ -74,11 +74,11 @@ describe('test SerialRequestResponseTransport with D0Protocol Fast Send', functi
         var endTimer = null;
         setTimeout(function() {
             //console.log('SEND Data Message');
-            var testData = new Buffer('/EMH5----eHZ-E0018E\r\n\r\n1-0:0.0.0*255(331200-5009810)\r\n1-0:1.8.1*255(032942.0231)\r\n1-0:96.5.5*255(80)\r\n0-0:96.1.255*255(0000680476)\r\n!\r\n');
+            var testData = Buffer.from('/EMH5----eHZ-E0018E\r\n\r\n1-0:0.0.0*255(331200-5009810)\r\n1-0:1.8.1*255(032942.0231)\r\n1-0:96.5.5*255(80)\r\n0-0:96.1.255*255(0000680476)\r\n!\r\n');
             smTransport.serialComm.writeToComputer(testData);
 
             setTimeout(function() {
-                testData = new Buffer('/EMH5----eHZ-E0018E\r\n\r\n1-0:0.0.0*255(331200-5009810)\r\n1-0:1.8.1*255(032942.0234)\r\n1-0:96.5.5*255(80)\r\n0-0:96.1.255*255(0000680476)\r\n!\r\n');
+                testData = Buffer.from('/EMH5----eHZ-E0018E\r\n\r\n1-0:0.0.0*255(331200-5009810)\r\n1-0:1.8.1*255(032942.0234)\r\n1-0:96.5.5*255(80)\r\n0-0:96.1.255*255(0000680476)\r\n!\r\n');
                 smTransport.serialComm.writeToComputer(testData);
 
                 if (!endTimer) {

@@ -74,14 +74,14 @@ describe('test SerialRequestResponseTransport with D0Protocol with Mode D Ack', 
             }
             else if (data === '/?!\r\n') {
                 //console.log('SEND Identification Message');
-                var testData = new Buffer('/ELS5\\@V9.30 \r\n');
+                var testData = Buffer.from('/ELS5\\@V9.30 \r\n');
                 smTransport.serialComm.writeToComputer(testData);
             }
             else if (data === '\u0006050\r\n') {
-                testData = new Buffer('\u0006\r\n');
+                testData = Buffer.from('\u0006\r\n');
                 smTransport.serialComm.writeToComputer(testData);
 
-                testData = new Buffer('\u0002F.F(00)\r\nC.1(1234567890123456)\r\nC.5.0(00)\r\n1.8.0(000285.4*kWh)\r\n2.8.0(000120.1*kWh)\r\n!\r\n');
+                testData = Buffer.from('\u0002F.F(00)\r\nC.1(1234567890123456)\r\nC.5.0(00)\r\n1.8.0(000285.4*kWh)\r\n2.8.0(000120.1*kWh)\r\n!\r\n');
                 smTransport.serialComm.writeToComputer(testData);
 
                 if (!endTimer) {

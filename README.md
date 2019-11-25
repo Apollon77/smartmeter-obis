@@ -141,6 +141,11 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
+### v2.0.0 (2019-11-26)
+* update deps, support nodejs 8.x till 12.x
+* update Buffer usage
+* Add GitHub Actions for Test and Release
+
 ### v1.1.3 (11.11.2018)
 * Small fix
 
