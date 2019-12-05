@@ -141,6 +141,9 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
+### v2.0.1 (2019-12-05)
+* fix some smaller edge cases
+
 ### v2.0.0 (2019-11-26)
 * update deps, support nodejs 8.x till 12.x
 * update Buffer usage
