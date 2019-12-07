@@ -141,6 +141,9 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
+### v2.0.2 (2019-12-07)
+* handle serial port closes better
+
 ### v2.0.1 (2019-12-05)
 * fix some smaller edge cases
 
