@@ -141,6 +141,9 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
+### v2.0.4 (2019-12-20)
+* handle stopping of process better
+
 ### v2.0.3 (2019-12-18)
 * handle stopping of process better
 
