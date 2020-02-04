@@ -141,6 +141,10 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
+### v2.0.5 (2020-02-04)
+* handle stopping of process better
+* make sure HTTP based smartmeters are also polled frequently when responses are invalid
+
 ### v2.0.4 (2019-12-20)
 * handle stopping of process better
 

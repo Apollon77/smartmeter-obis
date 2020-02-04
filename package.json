@@ -1,6 +1,6 @@
 {
   "name": "smartmeter-obis",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "This library supports the reading and parsing of smartmeter protocols that follow the OBIS number logic to make their data available.",
   "author": "Ingo Fischer <ingo@fischer-ka.de>",
   "contributors": [],
@@ -20,16 +20,16 @@
   },
   "dependencies": {
     "open-sml": "^1.0.0",
-    "serialport": "^8.0.5",
+    "serialport": "^8.0.7",
     "request": "^2.88.0"
   },
   "devDependencies": {
     "virtual-serialport": "Apollon77/virtual-serialport",
-    "mocha": "^6.2.2",
+    "mocha": "^7.0.1",
     "chai": "^4.2.0",
     "nyc": "*",
-    "sinon": "^8.0.0",
-    "nock": "^11.7.0",
+    "sinon": "^8.1.1",
+    "nock": "^11.7.2",
     "mock-require": "^3.0.3",
     "mock-stdin": "^1.0.0"
   },
