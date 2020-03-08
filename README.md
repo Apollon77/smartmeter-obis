@@ -27,6 +27,8 @@ Supported Transports (how to receive the data):
 * **SerialRequestResponseTransport**: D0 protocol in modes A, B, C and D (mode E curently NOT supported!) with Wakeup-, Signon-, pot. ACK- and Data-messages to read out data (programing/write mode not implemented so far)
 * **HttpRequestTransport**: Read data via HTTP by requesting an defined URL
 * **LocalFileTransport**: Read data from a local file
+* **StdInTransport**: Read data from stdin
+* **TCPTransport**: Read data from a tcp socket
 
 ## Usage example (example for SerialRequestResposeTransport with D0Protocol)
 
@@ -88,7 +90,7 @@ The process
 | --- | --- | --- |
 | **Basic configuration** |
 | [protocol] | <code>string</code> | required, value **SmlProtocol**, **D0Protocol** or **JsonEfrProtocol** |
-| [transport] | <code>string</code> | required, value **SerialResposeTransport**, **SerialRequestResposeTransport**, **HttpRequestTransport** or **LocalFileTransport** |
+| [transport] | <code>string</code> | required, value **SerialResposeTransport**, **SerialRequestResposeTransport**, **HttpRequestTransport**, **LocalFileTransport**, **StdInTransport** or **TCPTransport** |
 | [requestInterval] | <code>number</code> | optional, number of seconds to wait for next request or pause serial receiving, value 0 possible to restart directly after finishing one message, Default: is 300 (=5 Minutes) |
 | **Transport specific options** |
 | [transportSerialPort] | <code>string</code> | required for Serial protocols, Serial device name, e.g. "/dev/ttyUSB0" |
@@ -103,6 +105,8 @@ The process
 | [transportLocalFilePath] | <code>string</code> | required for **LocalFileTransport**, File patch to read data from |
 | [transportStdInMaxBufferSize] | <code>number</code> | optional, default value is 300000 (means after 300000 bytes without a matching message an Error is thrown ) |
 | [transportStdInMessageTimeout] | <code>number</code> | ms, optional, default value is 120000 (means after 120000ms without a matching message or new data an Error is thrown ) |
+| [transportTcpMaxBufferSize] | <code>number</code> | optional, default value is 300000 (means after 300000 bytes without a matching message an Error is thrown ) |
+| [transportTcpMessageTimeout] | <code>number</code> | ms, optional, default value is 120000 (means after 120000ms without a matching message or new data an Error is thrown ) |
 | **Protocol specific options** |
 | [protocolD0WakeupCharacters] | <code>number</code> | optional for **D0Protocol**, number of wakeup NULL characters, default 0 |
 | [protocolD0DeviceAddress] | <code>string</code> | optional for **D0Protocol**, device address (max 32 characters) for SignIn-Message, default empty |
@@ -138,8 +142,14 @@ Please send me an info on devices where you have used the library successfully a
 ## Todos
 * finalize tests in ObisNames (german/english) and remove mixtures
 * Support for OMS somehow?
+* Add testing for TCPTransport
 
 ## Changelog
+
+### v2.1.0 (2020-03-08)
+* Add experimental TCPTransport support (thanks to @chris1705)
+* fix a potential crash
+* correctly ignore invalid CRC
 
 ### v2.0.5 (2020-02-04)
 * handle stopping of process better
