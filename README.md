@@ -146,8 +146,12 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
+### v2.1.1 (2020-03-11)
+* handle stopping of process better
+* TCP Transport optimization
+
 ### v2.1.0 (2020-03-08)
-* Add experimental TCPTransport support (thanks to @chris1705)
+* Add TCPTransport support (thanks to @chris1705)
 * fix a potential crash
 * correctly ignore invalid CRC
 
