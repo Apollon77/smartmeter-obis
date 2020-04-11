@@ -146,6 +146,9 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
+### v2.1.2 (2020-04-12)
+* catch errors when no memory is available anymore and stop processing
+
 ### v2.1.1 (2020-03-11)
 * handle stopping of process better
 * TCP Transport optimization
