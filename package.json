@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "virtual-serialport": "Apollon77/virtual-serialport",
-    "mocha": "^7.1.1",
+    "mocha": "^8.0.1",
     "chai": "^4.2.0",
     "nyc": "^15.1.0",
     "sinon": "^9.0.2",
