@@ -146,6 +146,10 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
+### __WORK IN PROGRESS__
+* fix Sentry crash IOBROKER-SMARTMETER-P
+* update OpenSML library to prevent some crash cases
+
 ### v2.1.2 (2020-04-12)
 * catch errors when no memory is available anymore and stop processing
 
