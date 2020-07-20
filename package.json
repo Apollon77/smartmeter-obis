@@ -1,6 +1,6 @@
 {
   "name": "smartmeter-obis",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "This library supports the reading and parsing of smartmeter protocols that follow the OBIS number logic to make their data available.",
   "author": "Ingo Fischer <ingo@fischer-ka.de>",
   "contributors": [],
