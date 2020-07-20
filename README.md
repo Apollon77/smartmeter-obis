@@ -134,6 +134,7 @@ The process
 * Itron EM214 Typ 720
 * Dutch smart-meters (use Serial-Read-only with correct baudrate according to your smart meter if needed and "D0" as protocol)
 * DZG DWS7412.1T
+* Landis & Gyr E220
 * ... and many more
 
 Please send me an info on devices where you have used the library successfully and I will add it here.
