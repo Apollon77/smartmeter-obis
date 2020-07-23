@@ -134,6 +134,7 @@ The process
 * Itron EM214 Typ 720
 * Dutch smart-meters (use Serial-Read-only with correct baudrate according to your smart meter if needed and "D0" as protocol)
 * DZG DWS7412.1T
+    * *IMPORTANT*: There seems to be a Firmware bug and sometimes the current energy consumptions becomes negative! Manual recalculation possible using formular from https://github.com/Apollon77/smartmeter-obis/issues/75#issuecomment-581650736
 * Landis & Gyr E220
 * ... and many more
 
