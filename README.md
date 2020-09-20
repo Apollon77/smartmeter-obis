@@ -148,6 +148,10 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
+### __WORK IN PROGRESS__
+* prevent potential crash in TCP Transport (Sentry IOBROKER-SMARTMETER-R)
+* Read over all network data for tcp socket usage when paused
+
 ### 2.1.3 (2020-07-20)
 * fix Sentry crash IOBROKER-SMARTMETER-P
 * update OpenSML library to prevent some crash cases
