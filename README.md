@@ -148,7 +148,7 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
-### __WORK IN PROGRESS__
+### 2.1.5 (2020-09-21)
 * really read over all network data for tcp socket usage when paused
 
 ### 2.1.4 (2020-09-21)
