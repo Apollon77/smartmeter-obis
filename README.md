@@ -148,7 +148,7 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
-### __WORK IN PROGRESS__
+### 2.1.6 (2020-11-15)
 * update OpenSML lib to support Holley DTZ541 wrongly implemented CRC Algorithm
 
 ### 2.1.5 (2020-09-21)
