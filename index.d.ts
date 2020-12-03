@@ -20,7 +20,7 @@ interface ObisBaseOptions {
     /**
      * optional, values: 0 (no logging), 1 (basic logging), 2 (detailed logging), Default: 0
      */
-    debug?: number;
+    debug?: 0 | 1 | 2;
 
     /**
      * optional, logging function that accepts one parameter to log a string. Default is "console.log"
@@ -37,6 +37,9 @@ interface ObisSmlProtocolOptions {
      */
     protocol: 'SmlProtocol';
 
+    /**
+     * required for SmlProtocol, if false and CRC checksum is invalid an Error is thrown
+     */
     protocolSmlIgnoreInvalidCRC: boolean;
 }
 
