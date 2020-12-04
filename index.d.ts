@@ -1,4 +1,5 @@
 import * as ObisNames from './lib/ObisNames';
+import {ObisMeasurement} from './lib/ObisMeasurement';
 
 export type ObisOptions = ObisBaseOptions & ObisProtocolOptions & ObisTransportOptions;
 export type ObisLanguage = 'en' | 'de';
@@ -88,7 +89,12 @@ interface ObisJsonEfrProtocolOptions {
 }
 
 
-type ObisTransportOptions = ObisSerialTransportOptions | ObisHttpRequestTransportOptions | ObisLocalFileTransportOptions | ObisStdInTransportOptions | ObisTCPTransportOptions;
+type ObisTransportOptions =
+    ObisSerialTransportOptions
+    | ObisHttpRequestTransportOptions
+    | ObisLocalFileTransportOptions
+    | ObisStdInTransportOptions
+    | ObisTCPTransportOptions;
 
 interface ObisSerialTransportOptions {
     /**
@@ -198,10 +204,11 @@ interface ObisTCPTransportOptions {
 
 declare abstract class ObisTransport {
     process(): void;
+
     stop(): void;
 }
 
 
-export { ObisNames }
+export {ObisNames}
 
 export function init(options: ObisOptions, callback: (err: Error, obisResult: { [obisId: string]: ObisMeasurement; }) => void): ObisTransport;

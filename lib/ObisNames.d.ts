@@ -1,4 +1,4 @@
-import { ObisLanguage } from '..';
+import {ObisLanguage} from '..';
 
 interface ObisMeasurementNames {
     mediumName: string;

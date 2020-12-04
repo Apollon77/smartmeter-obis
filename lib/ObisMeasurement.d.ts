@@ -1,4 +1,4 @@
-declare class ObisMeasurement {
+export declare class ObisMeasurement {
     medium: number;
     channel: number;
     measurement: number;
