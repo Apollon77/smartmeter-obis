@@ -1,5 +1,8 @@
-import * as ObisNames from './lib/ObisNames';
 import {ObisMeasurement} from './lib/ObisMeasurement';
+
+export * as ObisNames from './lib/ObisNames';
+export * as SmlUnits from './lib/protocols/SmlUnits';
+export {ObisMeasurement}
 
 export type ObisOptions = ObisBaseOptions & ObisProtocolOptions & ObisTransportOptions;
 export type ObisLanguage = 'en' | 'de';
@@ -208,7 +211,5 @@ declare abstract class ObisTransport {
     stop(): void;
 }
 
-
-export {ObisNames}
 
 export function init(options: ObisOptions, callback: (err: Error, obisResult: { [obisId: string]: ObisMeasurement; }) => void): ObisTransport;
