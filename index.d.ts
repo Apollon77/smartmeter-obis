@@ -29,7 +29,7 @@ interface ObisBaseOptions {
     /**
      * optional, logging function that accepts one parameter to log a string. Default is "console.log"
      */
-    logger?: (...obj: any[]) => void;
+    logger?: Function;
 }
 
 
@@ -208,7 +208,7 @@ interface ObisTCPTransportOptions {
 declare abstract class ObisTransport {
     process(): void;
 
-    stop(): void;
+    stop(callback?: () => void): void;
 }
 
 
