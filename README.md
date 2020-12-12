@@ -30,7 +30,7 @@ Supported Transports (how to receive the data):
 * **StdInTransport**: Read data from stdin
 * **TCPTransport**: Read data from a tcp socket
 
-## Usage example (example for SerialRequestResposeTransport with D0Protocol)
+## Usage example (example for SerialRequestResponseTransport with D0Protocol)
 
 ```
 var SmartmeterObis = require('smartmeter-obis');
@@ -90,7 +90,7 @@ The process
 | --- | --- | --- |
 | **Basic configuration** |
 | [protocol] | <code>string</code> | required, value **SmlProtocol**, **D0Protocol** or **JsonEfrProtocol** |
-| [transport] | <code>string</code> | required, value **SerialResposeTransport**, **SerialRequestResposeTransport**, **HttpRequestTransport**, **LocalFileTransport**, **StdInTransport** or **TCPTransport** |
+| [transport] | <code>string</code> | required, value **SerialResponseTransport**, **SerialRequestResponseTransport**, **HttpRequestTransport**, **LocalFileTransport**, **StdInTransport** or **TCPTransport** |
 | [requestInterval] | <code>number</code> | optional, number of seconds to wait for next request or pause serial receiving, value 0 possible to restart directly after finishing one message, Default: is 300 (=5 Minutes) |
 | **Transport specific options** |
 | [transportSerialPort] | <code>string</code> | required for Serial protocols, Serial device name, e.g. "/dev/ttyUSB0" |
