@@ -148,7 +148,7 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
-### __WORK IN PROGRESS__
+### 2.2.0 (2020-12-17)
 * add Typescript typings (credits to pkwagner)
 
 ### 2.1.6 (2020-11-15)
