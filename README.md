@@ -148,6 +148,9 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
+### __WORK IN PROGRESS__
+* add Typescript typings (credits to pkwagner)
+
 ### 2.1.6 (2020-11-15)
 * update OpenSML lib to support Holley DTZ541 wrongly implemented CRC Algorithm
 
