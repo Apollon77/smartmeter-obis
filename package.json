@@ -38,6 +38,7 @@
     "url": "https://github.com/Apollon77/smartmeter-obis/issues"
   },
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "nyc --reporter=lcov node_modules/mocha/bin/mocha --exit",
     "release": "release-script"
