@@ -20,16 +20,16 @@
   },
   "dependencies": {
     "open-sml": "^1.0.2",
-    "serialport": "^9.0.2",
+    "serialport": "^9.0.4",
     "request": "^2.88.2"
   },
   "devDependencies": {
-    "@alcalzone/release-script": "^1.8.1",
+    "@alcalzone/release-script": "^1.8.3",
     "virtual-serialport": "Apollon77/virtual-serialport",
     "mocha": "^8.2.1",
     "chai": "^4.2.0",
     "nyc": "^15.1.0",
-    "sinon": "^9.2.1",
+    "sinon": "^9.2.3",
     "nock": "^13.0.5",
     "mock-require": "^3.0.3",
     "mock-stdin": "^1.0.0"
