@@ -45,6 +45,13 @@ interface ObisSmlProtocolOptions {
      * required for SmlProtocol, if false and CRC checksum is invalid an Error is thrown
      */
     protocolSmlIgnoreInvalidCRC: boolean;
+
+    /**
+     * optional for SmlProtocol, if set defines the input Encoding of the data. Default
+     * is "binary" (as received from a serial connection). Other options are
+     * "ascii", "utf-8" or "base64"
+     */
+    protocolSmlInputEncoding: string;
 }
 
 interface ObisD0ProtocolOptions {
