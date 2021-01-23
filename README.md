@@ -114,6 +114,7 @@ The process
 | [protocolD0ModeOverwrite] | <code>string</code> | optional for **D0Protocol**, to ignore the mode send by the device set the correct D0 mode here. The mode send by the device in the identification message is ignored |
 | [protocolD0BaudrateChangeoverOverwrite] | <code>number</code> | optional for **D0Protocol**, when the D0 mode needs a baudrate changeover, but the device information from identification message is wrong, overwrite with this value |
 | [protocolSmlIgnoreInvalidCRC] | <code>boolean</code> | required for **SmlProtocol**, if false and CRC checksum is invalid an Error is thrown |
+| [protocolSmlInputEncoding] | <code>string</code> | optionalfor **SmlProtocol**, if set defines the input Encoding of the data. Default is "binary" (as received from a serial connection). Other options are "ascii", "utf-8" or "base64" |
 | [anotherQueryDelay] | <code>number</code> | optional for **D0Protocol** with **SerialRequestResponseTransport** when multiple SignOnMessages are given. Value is in ms, default 1000 |
 | **OBIS options** |
 | [obisFallbackMedium] | <code>number</code> | optional, if smartmeter do not return complete OBIS IDs (without medium info) this will be used as fallback for name resolving |
@@ -147,6 +148,9 @@ Please send me an info on devices where you have used the library successfully a
 * Add testing for TCPTransport
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* add protocolSmlInputEncoding to allow other input encodings for SML messages
 
 ### 2.2.0 (2020-12-17)
 * add Typescript typings (credits to pkwagner)
