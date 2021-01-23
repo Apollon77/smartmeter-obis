@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "open-sml": "^1.0.2",
-    "serialport": "^9.0.4",
+    "serialport": "^9.0.6",
     "request": "^2.88.2"
   },
   "devDependencies": {
@@ -29,8 +29,8 @@
     "mocha": "^8.2.1",
     "chai": "^4.2.0",
     "nyc": "^15.1.0",
-    "sinon": "^9.2.3",
-    "nock": "^13.0.5",
+    "sinon": "^9.2.4",
+    "nock": "^13.0.6",
     "mock-require": "^3.0.3",
     "mock-stdin": "^1.0.0"
   },
