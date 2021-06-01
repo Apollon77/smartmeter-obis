@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "open-sml": "^1.0.2",
-    "serialport": "^9.0.7",
+    "serialport": "^9.1.0",
     "request": "^2.88.2"
   },
   "devDependencies": {
