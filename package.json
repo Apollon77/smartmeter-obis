@@ -27,7 +27,7 @@
     "@alcalzone/release-script": "^2.2.1",
     "virtual-serialport": "Apollon77/virtual-serialport",
     "mocha": "^9.2.0",
-    "chai": "^4.3.4",
+    "chai": "^4.3.6",
     "nyc": "^15.1.0",
     "sinon": "^11.1.2",
     "nock": "^13.1.4",
