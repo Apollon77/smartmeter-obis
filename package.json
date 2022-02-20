@@ -24,7 +24,7 @@
     "request": "^2.88.2"
   },
   "devDependencies": {
-    "@alcalzone/release-script": "^2.2.2",
+    "@alcalzone/release-script": "^3.5.2",
     "virtual-serialport": "https://git@github.com/Apollon77/virtual-serialport",
     "mocha": "^9.2.1",
     "chai": "^4.3.6",
