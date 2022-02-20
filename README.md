@@ -142,7 +142,8 @@ Please send me an info on devices where you have used the library successfully a
 ## Changelog
 
 ### __WORK IN PROGRESS__
-* IMPORTANT: This version requires at least Node.js 12.17+ (excluding non LTS 13.x)
+* IMPORTANT: This version requires at least Node.js 12.17+ (excluding non LTS like 13.x)
+* Upgrade dependencies and optimize some pot. crash cases
 
 ### 2.3.0 (2021-01-23)
 * add protocolSmlInputEncoding to allow other input encodings for SML messages

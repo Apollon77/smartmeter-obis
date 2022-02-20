@@ -19,7 +19,7 @@
     "url": "https://github.com/Apollon77/smartmeter-obis"
   },
   "dependencies": {
-    "open-sml": "^1.0.3",
+    "open-sml": "^1.0.4",
     "serialport": "^10.3.0",
     "request": "^2.88.2"
   },
