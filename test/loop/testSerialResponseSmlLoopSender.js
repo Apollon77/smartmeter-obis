@@ -1,7 +1,7 @@
 // open up socat:
 // sudo socat -d -d pty,link=/Volumes/Dev/serial-master,raw,echo=0,user=ingof,group=staff pty,link=/Volumes/Dev/serial-slave,raw,echo=0,user=ingof,group=staff
 
-var SerialPort = require('serialport');
+var { SerialPort } = require('serialport');
 
 var masterSerial = new SerialPort('/Volumes/Dev/serial-master', {
     autoOpen: true,
