@@ -141,7 +141,7 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
-### __WORK IN PROGRESS__
+### 3.0.2 (2022-02-21)
 * IMPORTANT: This version requires at least Node.js 12.17+ (excluding non LTS like 13.x)
 * Upgrade dependencies and optimize some pot. crash cases
 
