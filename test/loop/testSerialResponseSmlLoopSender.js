@@ -3,7 +3,8 @@
 
 var { SerialPort } = require('serialport');
 
-var masterSerial = new SerialPort('/Volumes/Dev/serial-master', {
+var masterSerial = new SerialPort({
+    path: '/Volumes/Dev/serial-master',
     autoOpen: true,
     baudrate:   9600
 });
