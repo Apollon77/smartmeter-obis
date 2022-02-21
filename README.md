@@ -141,7 +141,7 @@ Please send me an info on devices where you have used the library successfully a
 
 ## Changelog
 
-### __WORK IN PROGRESS__
+### 3.0.1 (2022-02-21)
 * fix Serialport usage
 
 ### 3.0.0 (2022-02-20)
