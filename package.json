@@ -28,7 +28,7 @@
     "@alcalzone/release-script-plugin-iobroker": "^3.5.9",
     "@alcalzone/release-script-plugin-license": "^3.5.9",
     "virtual-serialport": "https://git@github.com/Apollon77/virtual-serialport",
-    "mocha": "^9.2.2",
+    "mocha": "^10.1.0",
     "chai": "^4.3.6",
     "nyc": "^15.1.0",
     "sinon": "^13.0.2",
