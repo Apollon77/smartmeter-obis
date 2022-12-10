@@ -129,6 +129,8 @@ The process
   * *IMPORTANT*: There seems to be a Firmware bug and sometimes the current energy consumptions becomes negative! Manual recalculation possible using formular from https://github.com/Apollon77/smartmeter-obis/issues/75#issuecomment-581650736
 * Landis & Gyr E220, Landis+Gyr E350 EDL21
   * potentially you need to configure to send some wake up characters
+* Holley DTZ541
+* Logarex LK13BE
 * ... and many more
 
 Please send me an info on devices where you have used the library successfully and I will add it here.
