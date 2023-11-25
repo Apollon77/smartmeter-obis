@@ -4,7 +4,7 @@
 [![Downloads](https://img.shields.io/npm/dm/smartmeter-obis.svg)](https://www.npmjs.com/package/smartmeter-obis)
 ![Test and Release](https://github.com/Apollon77/smartmeter-obis/workflows/Test%20and%20Release/badge.svg)
 
-***This library supports Node.js 12.x+.***
+***This library supports Node.js 16.x+.***
 
 This library supports the reading and parsing of smartmeter protocols that follow the OBIS number logic to make their data available.
 
@@ -142,6 +142,9 @@ Please send me an info on devices where you have used the library successfully a
 * Add testing for TCPTransport
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* IMPORTANT: This version requires at least Node.js 16+
 
 ### 3.0.2 (2022-02-21)
 * IMPORTANT: This version requires at least Node.js 12.17+ (excluding non LTS like 13.x)
