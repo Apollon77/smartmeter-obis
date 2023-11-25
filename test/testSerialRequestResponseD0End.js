@@ -94,7 +94,7 @@ describe('test SerialRequestResponseTransport with D0Protocol', function() {
                                 expect(counter).to.be.equal(2);
                                 expect(errCounter).to.be.equal(0);
                                 expect(smTransport.protocol.deviceManufacturer).to.be.equal('LGZ');
-                                expect(smTransport.protocol.commBaudrateChangeover).to.be.equal(2400);
+                                expect(smTransport.protocol.commBaudrateChangeover).to.be.equal(9600);
                                 setTimeout(function() {
                                     expect(smTransport.serialConnected).to.be.false;
                                     done();
