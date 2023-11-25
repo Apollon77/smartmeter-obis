@@ -142,8 +142,7 @@ Please send me an info on devices where you have used the library successfully a
 * Add testing for TCPTransport
 
 ## Changelog
-
-### __WORK IN PROGRESS__
+### 4.0.0 (2023-11-25)
 * IMPORTANT: This version requires at least Node.js 16+
 * Upgrade dependencies and optimize some pot. crash cases
 
