@@ -44,7 +44,7 @@
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
-    "test": "nyc --reporter=lcov node_modules/mocha/bin/mocha --exit",
+    "test": "nyc --reporter=lcov mocha --exit",
     "release": "release-script"
   }
 }
