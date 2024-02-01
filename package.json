@@ -28,7 +28,7 @@
     "@alcalzone/release-script-plugin-license": "^3.5.9",
     "virtual-serialport": "https://git@github.com/Apollon77/virtual-serialport",
     "mocha": "^10.2.0",
-    "chai": "^4.3.10",
+    "chai": "^5.0.3",
     "nyc": "^15.1.0",
     "sinon": "^17.0.1",
     "nock": "^13.3.8",
