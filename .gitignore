@@ -1,5 +1,0 @@
-
-# Build artifacts and dependencies
-node_modules/
-coverage/
-.nyc_output/

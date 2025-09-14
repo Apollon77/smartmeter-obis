@@ -20,21 +20,20 @@
   },
   "dependencies": {
     "open-sml": "^1.0.4",
-    "request": "^2.88.2",
-    "serialport": "^12.0.0"
+    "serialport": "^12.0.0",
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "@alcalzone/release-script": "^3.6.0",
     "@alcalzone/release-script-plugin-license": "^3.5.9",
-    "chai": "^4.3.10",
-    "eslint": "^8.57.1",
+    "virtual-serialport": "https://git@github.com/Apollon77/virtual-serialport",
     "mocha": "^10.2.0",
-    "mock-require": "^3.0.3",
-    "mock-stdin": "^1.0.0",
-    "nock": "^13.3.8",
+    "chai": "^4.3.10",
     "nyc": "^15.1.0",
     "sinon": "^17.0.1",
-    "virtual-serialport": "https://git@github.com/Apollon77/virtual-serialport"
+    "nock": "^13.3.8",
+    "mock-require": "^3.0.3",
+    "mock-stdin": "^1.0.0"
   },
   "bugs": {
     "url": "https://github.com/Apollon77/smartmeter-obis/issues"
