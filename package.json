@@ -20,8 +20,7 @@
   },
   "dependencies": {
     "open-sml": "^1.0.4",
-    "serialport": "^12.0.0",
-    "request": "^2.88.2"
+    "serialport": "^12.0.0"
   },
   "devDependencies": {
     "@alcalzone/release-script": "^3.6.0",
@@ -31,7 +30,7 @@
     "chai": "^4.3.10",
     "nyc": "^15.1.0",
     "sinon": "^17.0.1",
-    "nock": "^13.3.8",
+    "nock": "^14.0.10",
     "mock-require": "^3.0.3",
     "mock-stdin": "^1.0.0"
   },
@@ -39,7 +38,7 @@
     "url": "https://github.com/Apollon77/smartmeter-obis/issues"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "main": "index.js",
   "types": "index.d.ts",
